@@ -9,9 +9,9 @@ python -m unittest discover -s tests -v
 python scripts/evaluate.py
 ```
 
-**实际结果：44 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
+**实际结果：45 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
 
-**真实模型：未运行。** 用户提供官方平台链接后，已核对 Base URL 为 `https://api.deepseek.com`、DeepSeek V4.1 Flash 的 API model 为 `deepseek-flash`；本机密钥尚未配置，因此无法证明真实模型在不同观察下能调整动作。不提交准确率、模型效果分数或“已满足真实 ReAct 验收”的结论。型号依据见[官方模型列表](https://api-docs.deepseek.com/quick_start/pricing/)。
+**真实模型：已执行并核查1条冲突路径。** 用户于2026-11-04 15:12（香港时间）在本机输入密钥，运行 `deepseek-flash`，经过5次真实模型工具调用，观察18:00占用后选择19:00，保存1份待用户确认草稿，未发布。原始文件见 [live-conflict.json](../examples/runs/live-conflict.json)，逐步核查和数据库快照见 [live-single/REPORT.md](../examples/runs/live-single/REPORT.md)。这证明此案例的真实模型工具循环已运行，**尚不足以证明至少两种不同结果下的路径或完整真实验收**，不据此声称全部达标。型号依据见[官方模型列表](https://api-docs.deepseek.com/quick_start/pricing/)。
 
 ## 逐场景预期与实际
 

@@ -62,6 +62,17 @@ class ConnectionHelperTests(unittest.TestCase):
         runner.assert_not_called()
         tk.Tk.return_value.destroy.assert_called_once()
 
+    def test_full_evaluation_uses_live_mode_and_cleans_up_key(self):
+        def evaluator(mode, destination):
+            self.assertEqual(mode, "live")
+            self.assertTrue(destination.replace("\\", "/").endswith("examples/runs/live"))
+            self.assertEqual(os.environ["MODEL_API_KEY"], "fake-test-secret")
+            return 0
+        with patch.dict(os.environ, {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(connect(lambda prompt: "fake-test-secret", full_evaluation=True,
+                                     evaluation_runner=evaluator), 0)
+            self.assertNotIn("MODEL_API_KEY", os.environ)
+
 
 if __name__ == "__main__":
     unittest.main()

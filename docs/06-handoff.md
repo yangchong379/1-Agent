@@ -23,6 +23,8 @@ Windows 下使用 tkinter 密码窗口，点击输入框后 Ctrl+V 粘贴，再�
 
 先单独跑冲突案例，再运行完整评估。`--model live` 失败不会切回 Mock。检查生成文件中 `mode=live_model`、实际工具调用、返回观察、后续动作；人工复核至少两条因不同观察而改变后续动作的路径。
 
+单个真实冲突案例现已通过并核查。补跑完整真实场景时可直接运行 `py -3.11 scripts/connect_deepseek.py --evaluate`，一次在密码窗口输入密钥；13组场景会分别输出 PASS/FAIL 并保留实际记录，此命令会进行多次付费模型调用。
+
 把 `examples/runs/live/summary.json` 和原始结果提交 Git，并更新 `docs/03-evaluation.md` 与 AI 使用说明。报告模型准确 ID、提供方、运行日期、失败/成功情况，不提交密钥、账单或私人账户信息。自动断言通过只证明这些案例满足业务条件，不能代替审阅真实模型行为。
 
 ## 数据变化复现

@@ -1,0 +1,23 @@
+{
+  "mode": "live_model",
+  "model": "deepseek-flash",
+  "started_at_utc": "2026-11-04T07:12:20.297108+00:00",
+  "raw_trace": "../live-conflict.json",
+  "raw_trace_sha256": "6c12448679c3b1dc695cd4e3ab20e323d8ad61e98f8d4401df984926907f8f67",
+  "verified_paths": 1,
+  "checks": {
+    "live_model_mode": true,
+    "expected_model": true,
+    "five_observed_tool_calls": true,
+    "observed_preferred_slot_conflict": true,
+    "selected_free_19_slot": true,
+    "original_hard_time_preserved": true,
+    "pending_user_confirmation": true,
+    "draft_saved_and_not_published": true,
+    "database_matches_receipt": true
+  },
+  "single_conflict_path_verified": true,
+  "full_live_evaluation_complete": false,
+  "two_distinct_live_paths_verified": false,
+  "review": "AI inspected original tool observations and read-only local SQLite snapshot after user execution."
+}

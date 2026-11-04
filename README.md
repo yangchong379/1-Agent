@@ -2,13 +2,14 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前交付状态：离线工程验证已完成；DeepSeek 官方地址及模型编号已核对，本机尚未配置密钥，真实模型决策效果未验证。GitHub 仓库尚未创建/推送。** 不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；提交前须执行真实模型验证并审核记录。
+**当前交付状态：离线工程验证已完成；真实 DeepSeek 已跑通并核查1条冲突排期路径，完整真实模型评估尚未完成。GitHub 仓库尚未创建/推送。** 不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；至少还须补充另一条不同工具观察下的真实模型路径并审核记录。
 
 ## 评审入口
 
 | 材料 | 入口 |
 |---|---|
 | 实际离线结果与完整 Trace | [examples/runs/mock/REPORT.md](examples/runs/mock/REPORT.md) |
+| 已核查的真实冲突路径 | [examples/runs/live-single/REPORT.md](examples/runs/live-single/REPORT.md) |
 | 测试执行明细 | [examples/runs/mock/tests.txt](examples/runs/mock/tests.txt) |
 | 结构化结果、环境、源码摘要 | [examples/runs/mock/summary.json](examples/runs/mock/summary.json) |
 | 需求及验收映射 | [docs/01-requirements.md](docs/01-requirements.md) |
@@ -77,7 +78,13 @@ python scripts/run.py --input examples/inputs/normal.json --db .runtime/failure.
 py -3.11 scripts/connect_deepseek.py
 ```
 
-Windows 下会弹出密码输入窗口：点击输入框，按 Ctrl+V 粘贴实际密钥，再点 OK。窗口以星号显示输入，支持正常粘贴；不要自己输入星号。Windows 入口需要 Python 自带的 tkinter（本机已确认可用）；非 Windows 仍使用终端隐藏输入。脚本仅运行一次冲突案例，最多12步，使用真实 API 额度；凭据只存在于该进程内，不写入文件。真实结果保存为 `examples/runs/live-conflict.json`。如果密钥曾发到聊天或公开位置，请先在平台撤销并重新创建。当前尚未完成远端验证，新增脚本的本地测试使用模拟执行器和模拟密码窗口。
+Windows 下会弹出密码输入窗口：点击输入框，按 Ctrl+V 粘贴实际密钥，再点 OK。窗口以星号显示输入，支持正常粘贴；不要自己输入星号。Windows 入口需要 Python 自带的 tkinter（本机已确认可用）；非 Windows 仍使用终端隐藏输入。脚本仅运行一次冲突案例，最多12步，使用真实 API 额度；凭据只存在于该进程内，不写入文件。真实结果保存为 `examples/runs/live-conflict.json`。如果密钥曾发到聊天或公开位置，请先在平台撤销并重新创建。本机已成功运行一次真实冲突案例；完整评估使用同样的密码框，只需再次运行：
+
+```powershell
+py -3.11 scripts/connect_deepseek.py --evaluate
+```
+
+该命令在临时数据库中执行13组真实场景，会进行多次付费 API 调用，记录保存到 `examples/runs/live/`，不会改变之前单案例的草稿。每个场景完成会打印 PASS/FAIL；请保持窗口打开直到结束。脚本自动断言通过后仍须人工核查实际 Trace。
 
 适配实现使用 Chat Completions function calling，可配置 DeepSeek 或提供该协议的服务。用户已提供 DeepSeek 官方平台链接；2026-11-04 核对官方文档，`deepseek-flash` 对应 DeepSeek-V4.1-Flash-1017，根地址为 `https://api.deepseek.com`。此处是官方型号映射，并非远端调用成功记录。依据：[DeepSeek 首次调用](https://api-docs.deepseek.com/)、[模型列表](https://api-docs.deepseek.com/quick_start/pricing/)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)。
 

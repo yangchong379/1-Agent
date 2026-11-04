@@ -1,5 +1,6 @@
 """One-command official DeepSeek connection, with hidden local credential input."""
 import getpass
+import argparse
 import os
 from pathlib import Path
 import sys
@@ -34,10 +35,11 @@ def read_secret(prompt):
             root.destroy()
 
 
-def connect(secret_reader=None, runner=None):
+def connect(secret_reader=None, runner=None, full_evaluation=False, evaluation_runner=None):
     secret_reader = secret_reader or read_secret
     runner = runner or main
-    print("将运行一次真实模型排期案例，会消耗 DeepSeek API 额度。")
+    print("将运行13组真实模型评估，会进行多次付费 API 调用。" if full_evaluation
+          else "将运行一次真实模型排期案例，会消耗 DeepSeek API 额度。")
     print("密钥仅在本机隐藏输入，不写入文件；请勿输入星号或 PowerShell 提示符。")
     if sys.platform == "win32":
         print("请在即将弹出的密码输入窗口中粘贴密钥，再点 OK。", flush=True)
@@ -59,6 +61,12 @@ def connect(secret_reader=None, runner=None):
     previous = {name: os.environ.get(name) for name in settings}
     try:
         os.environ.update(settings)
+        if full_evaluation:
+            if evaluation_runner is None:
+                from evaluate import evaluate
+                evaluation_runner = evaluate
+            print("正在执行完整真实模型评估；每组结束会显示结果，请保持窗口打开。", flush=True)
+            return evaluation_runner("live", str(ROOT / "examples/runs/live"))
         print("正在连接模型，请等待；运行记录会保存到 examples/runs/live-conflict.json。", flush=True)
         return runner(["--model", "live", "--max-steps", "12",
                        "--input", str(ROOT / "examples/inputs/conflict.json"),
@@ -74,7 +82,10 @@ def connect(secret_reader=None, runner=None):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--evaluate", action="store_true", help="Run all 13 live evaluation scenarios using one hidden key input")
+    args = parser.parse_args()
     if sys.platform != "win32" and not sys.stdin.isatty():
         print("请在交互式 PowerShell 中运行本命令；不要使用管道或重定向输入密钥。")
         raise SystemExit(4)
-    raise SystemExit(connect())
+    raise SystemExit(connect(full_evaluation=args.evaluate))

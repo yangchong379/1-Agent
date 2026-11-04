@@ -1,13 +1,15 @@
 import contextlib
 import io
 import os
+import json
+import tempfile
 from pathlib import Path
 import sys
 import unittest
 from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from connect_deepseek import connect, read_secret
+from connect_deepseek import connect, read_secret, failed_retry_plan
 
 
 class ConnectionHelperTests(unittest.TestCase):
@@ -72,6 +74,34 @@ class ConnectionHelperTests(unittest.TestCase):
             self.assertEqual(connect(lambda prompt: "fake-test-secret", full_evaluation=True,
                                      evaluation_runner=evaluator), 0)
             self.assertNotIn("MODEL_API_KEY", os.environ)
+
+    def test_retry_plan_selects_only_failures_and_never_overwrites_old_runs(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            folder = root / "examples/runs/live"
+            folder.mkdir(parents=True)
+            (folder / "summary.json").write_text(json.dumps({"mode": "live_model", "cases": [
+                {"case": "normal", "passed": True}, {"case": "conflict", "passed": False}]}), encoding="utf-8")
+            (root / "examples/runs/live-retry-1").mkdir()
+            names, destination = failed_retry_plan(root)
+            self.assertEqual(names, ["conflict"])
+            self.assertEqual(destination.name, "live-retry-2")
+
+    def test_retry_connection_passes_selected_cases_to_evaluator(self):
+        destination = Path("example-destination")
+        def evaluator(mode, output, case_names=None):
+            self.assertEqual(mode, "live")
+            self.assertEqual(case_names, ["conflict"])
+            return 0
+        with patch("connect_deepseek.failed_retry_plan", return_value=(["conflict"], destination)), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(connect(lambda prompt: "fake-test-secret", retry_failed=True,
+                                     evaluation_runner=evaluator), 0)
+
+    def test_retry_with_no_failures_does_not_request_key(self):
+        reader = MagicMock()
+        with patch("connect_deepseek.failed_retry_plan", return_value=([], Path("unused"))), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(connect(secret_reader=reader, retry_failed=True), 0)
+        reader.assert_not_called()
 
 
 if __name__ == "__main__":

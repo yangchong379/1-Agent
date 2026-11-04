@@ -1,6 +1,7 @@
 """One-command official DeepSeek connection, with hidden local credential input."""
 import getpass
 import argparse
+import json
 import os
 from pathlib import Path
 import sys
@@ -35,10 +36,36 @@ def read_secret(prompt):
             root.destroy()
 
 
-def connect(secret_reader=None, runner=None, full_evaluation=False, evaluation_runner=None):
+def failed_retry_plan(root=ROOT):
+    source = root / "examples/runs/live/summary.json"
+    if not source.exists():
+        raise ValueError("第一轮评估尚未结束，或缺少 examples/runs/live/summary.json。请先等待第一轮运行结束。")
+    summary = json.loads(source.read_text(encoding="utf-8"))
+    if summary.get("mode") != "live_model":
+        raise ValueError("失败重跑仅接受真实模型评估记录。")
+    names = [case["case"] for case in summary["cases"] if not case["passed"]]
+    number = 1
+    while (root / f"examples/runs/live-retry-{number}").exists():
+        number += 1
+    return names, root / f"examples/runs/live-retry-{number}"
+
+
+def connect(secret_reader=None, runner=None, full_evaluation=False, evaluation_runner=None, retry_failed=False):
     secret_reader = secret_reader or read_secret
     runner = runner or main
-    print("将运行13组真实模型评估，会进行多次付费 API 调用。" if full_evaluation
+    retry_names, destination = None, ROOT / "examples/runs/live"
+    if retry_failed:
+        try:
+            retry_names, destination = failed_retry_plan()
+        except (ValueError, OSError, KeyError):
+            print("请先等待第一轮真实评估完整结束并生成 examples/runs/live/summary.json，再重跑失败项。")
+            return 4
+        if not retry_names:
+            print("第一轮没有失败项，无需调用模型。")
+            return 0
+        full_evaluation = True
+        print("仅重跑失败项：" + ", ".join(retry_names))
+    print(f"将运行{len(retry_names) if retry_names else 13}组真实模型评估，会进行多次付费 API 调用。" if full_evaluation
           else "将运行一次真实模型排期案例，会消耗 DeepSeek API 额度。")
     print("密钥仅在本机隐藏输入，不写入文件；请勿输入星号或 PowerShell 提示符。")
     if sys.platform == "win32":
@@ -66,7 +93,9 @@ def connect(secret_reader=None, runner=None, full_evaluation=False, evaluation_r
                 from evaluate import evaluate
                 evaluation_runner = evaluate
             print("正在执行完整真实模型评估；每组结束会显示结果，请保持窗口打开。", flush=True)
-            return evaluation_runner("live", str(ROOT / "examples/runs/live"))
+            if retry_names:
+                return evaluation_runner("live", str(destination), case_names=retry_names)
+            return evaluation_runner("live", str(destination))
         print("正在连接模型，请等待；运行记录会保存到 examples/runs/live-conflict.json。", flush=True)
         return runner(["--model", "live", "--max-steps", "12",
                        "--input", str(ROOT / "examples/inputs/conflict.json"),
@@ -83,9 +112,11 @@ def connect(secret_reader=None, runner=None, full_evaluation=False, evaluation_r
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--evaluate", action="store_true", help="Run all 13 live evaluation scenarios using one hidden key input")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--evaluate", action="store_true", help="Run all 13 live evaluation scenarios using one hidden key input")
+    group.add_argument("--retry-failed", action="store_true", help="Retry failed scenarios only; retain first run and write a new live-retry-N folder")
     args = parser.parse_args()
     if sys.platform != "win32" and not sys.stdin.isatty():
         print("请在交互式 PowerShell 中运行本命令；不要使用管道或重定向输入密钥。")
         raise SystemExit(4)
-    raise SystemExit(connect(full_evaluation=args.evaluate))
+    raise SystemExit(connect(full_evaluation=args.evaluate, retry_failed=args.retry_failed))

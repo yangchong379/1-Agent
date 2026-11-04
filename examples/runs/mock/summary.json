@@ -1,9 +1,9 @@
 {
   "mode": "offline_mock",
-  "generated_at_utc": "2026-11-04T07:16:18.194369+00:00",
+  "generated_at_utc": "2026-11-04T08:44:58.652395+00:00",
   "python": "3.11.4",
   "platform": "Windows-10-10.0.19045-SP0",
-  "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+  "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
   "cases": [
     {
       "case": "normal",
@@ -237,13 +237,28 @@
       "fault": null
     }
   ],
+  "selected_cases": [
+    "normal",
+    "conflict",
+    "missing",
+    "risk",
+    "save_failure",
+    "duplicate",
+    "supplement",
+    "confirmed",
+    "changed_occupancy",
+    "no_slots",
+    "step_limit",
+    "batch",
+    "privacy_copyright"
+  ],
   "real_model_decision_quality_verified": false,
   "boundary": "Automatic business assertions only; manually inspect live traces for decision quality.",
-  "duration_seconds": 0.719,
+  "duration_seconds": 0.735,
   "passed": 13,
   "total": 13,
   "unit_tests": {
-    "run": 45,
+    "run": 54,
     "failures": 0,
     "errors": 0,
     "passed": true

@@ -1,0 +1,14 @@
+{
+  "draft_count": 1,
+  "drafts": [
+    {
+      "id": "draft-ce6cc4ddcba30c13",
+      "material_id": "M01",
+      "channel": "douyin",
+      "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-05T18:00+08:00\"}",
+      "slot": "2026-11-05T19:00+08:00",
+      "end": "2026-11-05T20:00:00+08:00",
+      "confirmation": "confirmed"
+    }
+  ]
+}

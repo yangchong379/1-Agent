@@ -3,7 +3,7 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 import copy
 from .domain import digest, review, validate_request
-from .models import ModelError, TOOLS
+from .models import ModelError, ModelProtocolError, TOOLS
 
 
 def initial_state(material_id):
@@ -38,7 +38,8 @@ class Agent:
             state["material"] = copy.deepcopy(material)
             state["existing_draft"] = self.store.draft(mid, req["channel"])
             state["review"] = None
-            return {"ok": True, "material": state["material"], "existing_draft": state["existing_draft"]}
+            return {"ok": True, "material": state["material"], "existing_draft": state["existing_draft"],
+                    "review_required": True, "note": "Reading metadata invalidates previous review; call check_rules before saving."}
         if name == "supplement_metadata":
             if state["material"] is None:
                 return {"ok": False, "code": "READ_FIRST"}
@@ -51,7 +52,8 @@ class Agent:
             state["material"].update(found)
             state["supplemented"] = True
             state["review"] = None
-            return {"ok": True, "found": found, "source": "synthetic_supplements"}
+            return {"ok": True, "found": found, "source": "synthetic_supplements", "review_required": True,
+                    "note": "Run check_rules again after this lookup, even when found is empty."}
         if name == "check_rules":
             if state["material"] is None:
                 return {"ok": False, "code": "READ_FIRST"}
@@ -64,7 +66,8 @@ class Agent:
         if name == "save_draft":
             # Recompute review; never trust the model's interpretation or cached status alone.
             if state["review"] is None or state["material"] is None:
-                return {"ok": False, "code": "REVIEW_REQUIRED"}
+                return {"ok": False, "code": "REVIEW_REQUIRED",
+                        "reason": "No current review. Reading or supplementing metadata invalidates previous review; call check_rules before saving. This is not an approval error."}
             current = review(state["material"], self.data["rules"])
             if current["status"] != "approved":
                 return {"ok": False, "code": "REVIEW_NOT_APPROVED", "review": current}
@@ -81,7 +84,10 @@ class Agent:
         if name == "finish":
             status = self.result_status(state)
             if status == "incomplete":
-                return {"ok": False, "code": "FINISH_REQUIRES_EVIDENCE"}
+                return {"ok": False, "code": "FINISH_REQUIRES_EVIDENCE",
+                        "review_status": state["review"]["status"] if state["review"] else "unchecked",
+                        "draft_saved": False,
+                        "reason": "No terminal evidence yet. Obtain a current review, query slots and save a draft when possible. A free alternative draft may be saved as pending_user before approval; it does not change the hard requirement or publish."}
             return {"ok": True, "code": "FINISHED", "status": status}
 
     @staticmethod
@@ -112,10 +118,18 @@ class Agent:
                 calls += 1
                 try:
                     action = self.model.choose(req, copy.deepcopy(state), copy.deepcopy(history))
+                except ModelProtocolError as exc:
+                    model_error = str(exc)
+                    event = {"step": calls, "material_id": mid, "model_error": model_error,
+                             "recoverable": True, "diagnostics": exc.diagnostics}
+                    history.append(event)
+                    events.append(event)
+                    continue
                 except ModelError as exc:
                     model_error, stop = str(exc), "model_error"
                     events.append({"step": calls, "material_id": mid, "model_error": model_error})
                     break
+                model_error = None
                 observation = self.execute(req, state, action)
                 event = {"step": calls, "material_id": mid, "action": asdict(action),
                          "observation": copy.deepcopy(observation)}
@@ -141,7 +155,7 @@ class Agent:
                 "draft_id": saved["draft_id"] if saved else None,
                 "save_receipt": saved, "stop_reason": stop,
                 "error": model_error or state["last_error"] or
-                         (history[-1]["observation"].get("code") if history and not history[-1]["observation"].get("ok") else None),
+                         (history[-1].get("observation", {}).get("code") if history and not history[-1].get("observation", {}).get("ok") else None),
                 "published": False})
         for index, event in enumerate(events):
             nxt = events[index + 1] if index + 1 < len(events) else None
@@ -151,6 +165,7 @@ class Agent:
                 "request": req, "started_at_utc": started, "dataset_sha256": digest(self.data),
                 "max_steps": self.max_steps, "model_calls": calls,
                 "tool_calls": sum("action" in e for e in events),
+                "protocol_rejections": sum(e.get("recoverable", False) for e in events),
                 "execution_complete": all(i["stop_reason"] == "finished" for i in items),
                 "all_drafts_saved": all(i["draft_save_status"] == "saved" for i in items),
                 "items": items, "trace": events,

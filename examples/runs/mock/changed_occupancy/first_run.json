@@ -12,11 +12,12 @@
     "hard_time": true,
     "approved_slots": {}
   },
-  "started_at_utc": "2026-11-04T07:16:18.766420+00:00",
+  "started_at_utc": "2026-11-04T08:44:59.232573+00:00",
   "dataset_sha256": "54005c5730870ac51ebfbdf1acce4a189efb339245830f0d832509173fb13d93",
   "max_steps": 40,
   "model_calls": 5,
   "tool_calls": 5,
+  "protocol_rejections": 0,
   "execution_complete": true,
   "all_drafts_saved": true,
   "items": [
@@ -64,7 +65,9 @@
           "copyright": "licensed",
           "contains_private_data": false
         },
-        "existing_draft": null
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
       },
       "next_action": "check_rules"
     },

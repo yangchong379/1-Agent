@@ -21,7 +21,7 @@ flowchart TD
 
 `--model live`：每轮通过 Chat Completions 的 `tools` 发出六个业务动作的 JSON Schema，读取模型实际选择的工具名称、参数和简短依据，执行工具后将原始 assistant tool call 和实际 tool observation 回传。支持 DeepSeek 思考模式要求的原调用 ID 和 `reasoning_content` 内存回传；内部思考内容不会写入 Trace。没有从条件分支生成“模型决策日志”。
 
-服务商使用 `tool_choice=auto`，避免 DeepSeek 思考模式拒绝 `required` 的兼容问题。提示要求每轮一个动作；返回零个/多个调用、非法 JSON 或超限响应体时明确停止并返回模型错误。没有隐式重试或回退 Mock。HTTP 请求超时为 45 秒，最大响应体 1 MiB，输出预算 4096 tokens。全请求步数有界，但不是严格的墙钟时间上限。
+`MODEL_THINKING=disabled` 时使用 `tool_choice=required`；思考模式或自动模式仍使用 `auto`，避免接口拒绝。提示要求每轮一个动作。真实评估发现，模型偶尔返回零个或多个调用，初版直接以 `MODEL_EXPECTED_ONE_TOOL_CALL` 中止，已保留失败记录。修复版会明确记录拒绝及调用数量；零调用回传原回复与纠正提示，多调用为每个原始调用返回“整批未执行”，再让模型重新选择一个动作。不会执行其中任意动作、伪造成功或回退 Mock。每次纠正均消耗全请求步数，达到上限仍返回未完成；HTTP、非法JSON和超限响应体等错误仍明确停止。HTTP 请求超时为45秒，最大响应体1MiB，输出预算4096 tokens。全请求步数有界，但不是严格的墙钟时间上限。参数依据：[DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。
 
 `--model mock`：确定性的观察驱动策略，检查上一轮真实工具结果再返回动作。补查为空会结束，补查成功会重新审核；时段变化会选不同时间；保存失败最多再试一次。这证明工具契约和状态闭环可以运行，**不证明真实模型 ReAct 决策合格**。结构化测试结果和文档始终保留该边界。
 

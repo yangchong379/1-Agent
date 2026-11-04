@@ -9,9 +9,23 @@ python -m unittest discover -s tests -v
 python scripts/evaluate.py
 ```
 
-**实际结果：45 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
+**实际结果：54 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
 
-**真实模型：已执行并核查1条冲突路径。** 用户于2026-11-04 15:12（香港时间）在本机输入密钥，运行 `deepseek-flash`，经过5次真实模型工具调用，观察18:00占用后选择19:00，保存1份待用户确认草稿，未发布。原始文件见 [live-conflict.json](../examples/runs/live-conflict.json)，逐步核查和数据库快照见 [live-single/REPORT.md](../examples/runs/live-single/REPORT.md)。这证明此案例的真实模型工具循环已运行，**尚不足以证明至少两种不同结果下的路径或完整真实验收**，不据此声称全部达标。型号依据见[官方模型列表](https://api-docs.deepseek.com/quick_start/pricing/)。
+**真实模型：首轮完整13组已执行，8/13通过、5项失败。** 模型为 `deepseek-flash`，真实模型决策配合本地合成业务工具，耗时988.813秒。正常、信息不足、风险、补查成功、明确批准、无时段、步数上限及版权隐私风险通过；冲突、保存故障、重复提交、变更占用后重复、批量场景未全部通过。见[原始summary](../examples/runs/live/summary.json)、[逐项复核](../examples/runs/live/REVIEW.md)。已有至少两条不同工具观察下的真实决策路径，但不能据此声称完整真实验收通过。最初单次冲突成功记录也保留在[live-conflict.json](../examples/runs/live-conflict.json)。
+
+## 首轮真实失败与修复
+
+| 场景 | 实际问题 | 原始记录 |
+|---|---|---|
+| conflict | 模型响应未满足恰好1个工具调用，明确中止 | [Trace](../examples/runs/live/conflict/result.json) |
+| save_failure | 尚未执行到保存工具就遇到模型协议错误，不能作为真实保存故障已通过 | [Trace](../examples/runs/live/save_failure/result.json) |
+| duplicate | 第一次已有草稿，第二次模型协议错误，去重整体断言失败 | [第二次Trace](../examples/runs/live/duplicate/result.json) |
+| changed_occupancy | 后一次成功建议20:00，但首次未成功，缺少可比对原草稿 | [首轮](../examples/runs/live/changed_occupancy/first_run.json)、[后一次](../examples/runs/live/changed_occupancy/result.json) |
+| batch | M01成功；M06读取/补查后未重审，保存被阻断，最后行动依据格式/长度不合规 | [Trace](../examples/runs/live/batch/result.json) |
+
+首轮代码的`MODEL_EXPECTED_ONE_TOOL_CALL`未记录数量，不能从旧记录确定是零调用还是多调用。修复后记录`diagnostics.tool_calls_count`，拒绝响应不执行动作，并向模型回传纠正反馈；每次纠正计入全局上限。非思考模式采用`required`，思考/自动模式保留`auto`。无效行动依据同样有界纠正；HTTP、非法JSON等仍明确停止。
+
+工具反馈也补充“重新读取/补查会使旧审核失效，须重审”，并澄清可先保存待确认草稿。新增测试证明拒绝批次无执行、原调用ID完整回传、纠正不突破上限以及只重跑失败项。**这些是代码回归验证，修复后的真实效果仍待补跑。** 用`py -3.11 scripts/connect_deepseek.py --retry-failed`只重跑五项，新记录写入`examples/runs/live-retry-N/`，首轮保留。
 
 ## 逐场景预期与实际
 
@@ -64,4 +78,4 @@ python scripts/evaluate.py
 
 ## 补齐真实模型验证
 
-配置后执行 `python scripts/evaluate.py --model live --output examples/runs/live`，至少人工审阅 normal、missing、risk、conflict、duplicate、save_failure 场景。模型可有不同工具顺序；不能仅靠预期文本相同判断正确。检查其是否看到工具观察、是否在冲突后选择合法替代、是否保留待确认、是否如实报告保存失败。提交 live 原始 Trace、摘要和失败原因后再更新本文件的结论。自动报告中的 `real_model_decision_quality_verified=false` 需由人工核查记录解释，不能自动改成通过。
+第一轮已完成并保留，后续优先运行失败项重跑，避免覆盖`examples/runs/live/`。核查normal、missing、risk、conflict、duplicate、save_failure的实际动作和反馈；模型可有不同顺序，不能仅靠结果文本一致判断正确。自动报告中的`real_model_decision_quality_verified=false`为默认边界标记，原文件不改写；AI逐项复核另存[review.json](../examples/runs/live/review.json)，并不代表生产级安全保证或候选人独立人工签字。后续实际结果须另行引用并说明源码版本与限制。

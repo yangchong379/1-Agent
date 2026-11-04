@@ -20,7 +20,9 @@ test_new_request_cannot_silently_change_existing_requirement (test_agent.AgentTe
 test_no_slots_ends_without_save (test_agent.AgentTests.test_no_slots_ends_without_save) ... ok
 test_normal_exact_slot_draft_only (test_agent.AgentTests.test_normal_exact_slot_draft_only) ... ok
 test_observed_write_conflict_causes_requery_then_alternative (test_agent.AgentTests.test_observed_write_conflict_causes_requery_then_alternative) ... ok
+test_protocol_rejection_is_visible_and_recovery_counts_towards_budget (test_agent.AgentTests.test_protocol_rejection_is_visible_and_recovery_counts_towards_budget) ... ok
 test_race_query_then_save_rechecks_current_occupancy (test_agent.AgentTests.test_race_query_then_save_rechecks_current_occupancy) ... ok
+test_repeated_protocol_rejections_stop_at_global_limit (test_agent.AgentTests.test_repeated_protocol_rejections_stop_at_global_limit) ... ok
 test_reused_request_id_different_payload_rejected (test_agent.AgentTests.test_reused_request_id_different_payload_rejected) ... ok
 test_rule_risk_blocks (test_agent.AgentTests.test_rule_risk_blocks) ... ok
 test_save_failure_rolls_back_and_is_explicit (test_agent.AgentTests.test_save_failure_rolls_back_and_is_explicit) ... ok
@@ -33,18 +35,25 @@ test_unknown_material_does_not_schedule (test_agent.AgentTests.test_unknown_mate
 test_exit_codes_and_json_artifacts (test_agent.CliTests.test_exit_codes_and_json_artifacts) ... ok
 test_http_error_body_not_exposed (test_agent.ModelAdapterTests.test_http_error_body_not_exposed) ... ok
 test_invalid_json_arguments_rejected (test_agent.ModelAdapterTests.test_invalid_json_arguments_rejected) ... ok
+test_long_rationale_is_rejected_without_execution_then_can_be_corrected (test_agent.ModelAdapterTests.test_long_rationale_is_rejected_without_execution_then_can_be_corrected) ... ok
 test_missing_key_and_unsafe_urls_rejected (test_agent.ModelAdapterTests.test_missing_key_and_unsafe_urls_rejected) ... ok
 test_missing_provider_call_id_or_null_message_is_safe_error (test_agent.ModelAdapterTests.test_missing_provider_call_id_or_null_message_is_safe_error) ... ok
 test_multiple_tool_calls_rejected (test_agent.ModelAdapterTests.test_multiple_tool_calls_rejected) ... ok
+test_non_thinking_mode_requires_a_tool (test_agent.ModelAdapterTests.test_non_thinking_mode_requires_a_tool) ... ok
+test_parallel_batch_rejection_replays_results_for_every_original_call (test_agent.ModelAdapterTests.test_parallel_batch_rejection_replays_results_for_every_original_call) ... ok
 test_real_adapter_sends_observations_and_replays_provider_call_id (test_agent.ModelAdapterTests.test_real_adapter_sends_observations_and_replays_provider_call_id) ... ok
+test_zero_tool_response_replays_actual_text_and_corrective_instruction (test_agent.ModelAdapterTests.test_zero_tool_response_replays_actual_text_and_corrective_instruction) ... ok
 test_cancelled_windows_dialog_does_not_call_model (test_connection_helper.ConnectionHelperTests.test_cancelled_windows_dialog_does_not_call_model) ... ok
 test_full_evaluation_uses_live_mode_and_cleans_up_key (test_connection_helper.ConnectionHelperTests.test_full_evaluation_uses_live_mode_and_cleans_up_key) ... ok
 test_hidden_input_configures_live_and_restores_environment (test_connection_helper.ConnectionHelperTests.test_hidden_input_configures_live_and_restores_environment) ... ok
 test_invalid_inputs_never_call_model_or_echo_input (test_connection_helper.ConnectionHelperTests.test_invalid_inputs_never_call_model_or_echo_input) ... ok
+test_retry_connection_passes_selected_cases_to_evaluator (test_connection_helper.ConnectionHelperTests.test_retry_connection_passes_selected_cases_to_evaluator) ... ok
+test_retry_plan_selects_only_failures_and_never_overwrites_old_runs (test_connection_helper.ConnectionHelperTests.test_retry_plan_selects_only_failures_and_never_overwrites_old_runs) ... ok
+test_retry_with_no_failures_does_not_request_key (test_connection_helper.ConnectionHelperTests.test_retry_with_no_failures_does_not_request_key) ... ok
 test_runner_error_still_removes_temporary_key (test_connection_helper.ConnectionHelperTests.test_runner_error_still_removes_temporary_key) ... ok
 test_windows_dialog_masks_input_and_destroys_window (test_connection_helper.ConnectionHelperTests.test_windows_dialog_masks_input_and_destroys_window) ... ok
 
 ----------------------------------------------------------------------
-Ran 45 tests in 4.069s
+Ran 54 tests in 4.216s
 
 OK

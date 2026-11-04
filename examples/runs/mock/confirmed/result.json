@@ -14,11 +14,12 @@
       "M01": "2026-11-05T19:00+08:00"
     }
   },
-  "started_at_utc": "2026-11-04T07:16:18.714727+00:00",
+  "started_at_utc": "2026-11-04T08:44:59.168573+00:00",
   "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
   "max_steps": 40,
   "model_calls": 5,
   "tool_calls": 5,
+  "protocol_rejections": 0,
   "execution_complete": true,
   "all_drafts_saved": true,
   "items": [
@@ -72,7 +73,9 @@
           "slot": "2026-11-05T19:00+08:00",
           "end": "2026-11-05T20:00:00+08:00",
           "confirmation": "pending_user"
-        }
+        },
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
       },
       "next_action": "check_rules"
     },

@@ -1,0 +1,9 @@
+{
+  "request_id": "privacy_copyright",
+  "material_ids": [
+    "M05"
+  ],
+  "channel": "douyin",
+  "preferred_slot": "2026-11-05T17:00+08:00",
+  "hard_time": true
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "mode": "live_model",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "save_failure",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T17:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T08:27:23.045701+00:00",
+  "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
+  "max_steps": 40,
+  "model_calls": 2,
+  "tool_calls": 1,
+  "execution_complete": false,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "M01",
+      "status": "incomplete_model_error",
+      "review_status": "unchecked",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T17:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "model_error",
+      "error": "MODEL_EXPECTED_ONE_TOOL_CALL",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "Read M01 metadata and existing draft before any scheduling."
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "M01",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": null
+      },
+      "next_action": "model_error"
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "model_error": "MODEL_EXPECTED_ONE_TOOL_CALL",
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "Live model tool decisions; synthetic business data; draft only"
+}

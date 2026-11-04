@@ -52,18 +52,25 @@ def source_digest():
                    for folder in ("src", "tests", "scripts") for p in sorted((ROOT / folder).rglob("*.py"))})
 
 
-def evaluate(mode, destination):
+def evaluate(mode, destination, case_names=None):
+    selected = cases()
+    if case_names is not None:
+        unknown = set(case_names) - {c[0] for c in selected}
+        if unknown or not case_names or len(set(case_names)) != len(case_names):
+            raise ValueError("case_names must be a nonempty list of unique known scenario names")
+        selected = [case for case in selected if case[0] in case_names]
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     summary = {"mode": "offline_mock" if mode == "mock" else "live_model",
                "generated_at_utc": datetime.now(timezone.utc).isoformat(),
                "python": platform.python_version(), "platform": platform.platform(),
                "source_sha256": source_digest(), "cases": [],
+               "selected_cases": [case[0] for case in selected],
                "real_model_decision_quality_verified": False,
                "boundary": "Automatic business assertions only; manually inspect live traces for decision quality."}
     base = load_json(ROOT / "data/fixtures.json")
     started = time.monotonic()
-    for name, request, expected, fault, max_steps, variant in cases():
+    for name, request, expected, fault, max_steps, variant in selected:
         data = copy.deepcopy(base)
         if variant:
             hours = (19,) if variant == "occupy_19" else (17, 19, 20)
@@ -151,9 +158,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", choices=["mock", "live"], default="mock")
     parser.add_argument("--output", help="Keep live runs separate from the submitted offline evidence")
+    parser.add_argument("--cases", nargs="+", help="Run only these scenario names; preserve other runs in a separate output folder")
     args = parser.parse_args()
     output = args.output or str(ROOT / "examples/runs" / args.model)
     try:
-        raise SystemExit(evaluate(args.model, output))
+        raise SystemExit(evaluate(args.model, output, args.cases))
     except ValueError as exc:
         parser.exit(4, f"Configuration error: {exc}\n")

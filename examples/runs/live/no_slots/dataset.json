@@ -1,0 +1,95 @@
+{
+  "description": "全部为合成素材，不含真实个人信息；固定日期用于可重复评估，并非实际发布日。",
+  "rules": {
+    "version": "synthetic-v1",
+    "required_fields": [
+      "title",
+      "description",
+      "copyright",
+      "contains_private_data"
+    ],
+    "blocked_phrases": [
+      "保证收益",
+      "百分百治愈"
+    ],
+    "duration_minutes": 60
+  },
+  "materials": {
+    "M01": {
+      "id": "M01",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "M02": {
+      "id": "M02",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "M03": {
+      "id": "M03",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "M04": {
+      "id": "M04",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "M05": {
+      "id": "M05",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "M06": {
+      "id": "M06",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    }
+  },
+  "supplements": {
+    "M02": {
+      "copyright": "licensed"
+    }
+  },
+  "slots": [
+    "2026-11-05T17:00+08:00",
+    "2026-11-05T18:00+08:00",
+    "2026-11-05T19:00+08:00",
+    "2026-11-05T20:00+08:00"
+  ],
+  "existing_schedule": [
+    {
+      "id": "existing-18",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    },
+    {
+      "id": "variant-17",
+      "channel": "douyin",
+      "start": "2026-11-05T17:00+08:00",
+      "end": "2026-11-05T18:00+08:00"
+    },
+    {
+      "id": "variant-19",
+      "channel": "douyin",
+      "start": "2026-11-05T19:00+08:00",
+      "end": "2026-11-05T20:00+08:00"
+    },
+    {
+      "id": "variant-20",
+      "channel": "douyin",
+      "start": "2026-11-05T20:00+08:00",
+      "end": "2026-11-05T21:00+08:00"
+    }
+  ]
+}

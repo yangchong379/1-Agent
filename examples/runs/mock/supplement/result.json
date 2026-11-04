@@ -12,11 +12,12 @@
     "hard_time": true,
     "approved_slots": {}
   },
-  "started_at_utc": "2026-11-04T07:16:18.644724+00:00",
+  "started_at_utc": "2026-11-04T08:44:59.098570+00:00",
   "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
   "max_steps": 40,
   "model_calls": 7,
   "tool_calls": 7,
+  "protocol_rejections": 0,
   "execution_complete": true,
   "all_drafts_saved": true,
   "items": [
@@ -61,7 +62,9 @@
           "description": "待补版权凭证的原创短片",
           "contains_private_data": false
         },
-        "existing_draft": null
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
       },
       "next_action": "check_rules"
     },
@@ -97,7 +100,9 @@
         "found": {
           "copyright": "licensed"
         },
-        "source": "synthetic_supplements"
+        "source": "synthetic_supplements",
+        "review_required": true,
+        "note": "Run check_rules again after this lookup, even when found is empty."
       },
       "next_action": "check_rules"
     },

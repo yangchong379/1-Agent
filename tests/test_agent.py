@@ -14,7 +14,7 @@ import urllib.error
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from scheduling_agent.domain import validate_request
 from scheduling_agent.engine import Agent, initial_state
-from scheduling_agent.models import Action, ChatModel, MockModel, ModelError
+from scheduling_agent.models import Action, ChatModel, MockModel, ModelError, ModelProtocolError
 from scheduling_agent.store import Store
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -269,6 +269,30 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(result["items"][0]["status"], "incomplete_model_error")
         self.assertEqual(result["items"][0]["error"], "MODEL_HTTP_401")
 
+    def test_protocol_rejection_is_visible_and_recovery_counts_towards_budget(self):
+        class OnceRejected(MockModel):
+            def choose(self, req, state, history):
+                if not history:
+                    raise ModelProtocolError(0)
+                return super().choose(req, state, history)
+        result = Agent(OnceRejected(), self.store, self.data).run(request())
+        self.assertEqual(result["items"][0]["status"], "draft_ready")
+        self.assertIsNone(result["items"][0]["error"])
+        self.assertEqual(result["model_calls"], 6)
+        self.assertEqual(result["tool_calls"], 5)
+        self.assertEqual(result["protocol_rejections"], 1)
+        self.assertEqual(result["trace"][0]["diagnostics"]["tool_calls_count"], 0)
+
+    def test_repeated_protocol_rejections_stop_at_global_limit(self):
+        class AlwaysRejected(MockModel):
+            def choose(self, *args):
+                raise ModelProtocolError(2)
+        result = Agent(AlwaysRejected(), self.store, self.data, max_steps=3).run(request())
+        self.assertEqual(result["model_calls"], 3)
+        self.assertEqual(result["tool_calls"], 0)
+        self.assertEqual(result["items"][0]["status"], "incomplete_step_limit")
+        self.assertEqual(self.store.count(), 0)
+
     def test_dataset_change_refuses_silent_reset(self):
         changed = copy.deepcopy(self.data)
         changed["rules"]["blocked_phrases"].append("changed")
@@ -349,12 +373,67 @@ class ModelAdapterTests(unittest.TestCase):
         self.assertNotIn("parallel_tool_calls", payload)
 
     def test_multiple_tool_calls_rejected(self):
-        model = self.fake_model({"tool_calls": [{}, {}]})
+        model = self.fake_model({"role": "assistant", "content": None, "tool_calls": [
+            {"id": "one", "type": "function", "function": {"name": "check_rules", "arguments": "{}"}},
+            {"id": "two", "type": "function", "function": {"name": "query_slots", "arguments": "{}"}}]})
         with self.assertRaisesRegex(ModelError, "MODEL_EXPECTED_ONE_TOOL_CALL"):
             model.choose(validate_request(request()), initial_state("M01"), [])
 
+    def test_non_thinking_mode_requires_a_tool(self):
+        message = {"role": "assistant", "content": None, "tool_calls": [{"id": "call-one", "function": {
+            "name": "read_material", "arguments": '{"rationale":"read"}'}}]}
+        model = self.fake_model(message)
+        with patch.dict("os.environ", {"MODEL_THINKING": "disabled"}):
+            model.choose(validate_request(request()), initial_state("M01"), [])
+        self.assertEqual(self.opener.requests[-1]["tool_choice"], "required")
+        self.assertEqual(self.opener.requests[-1]["thinking"]["type"], "disabled")
+
+    def test_parallel_batch_rejection_replays_results_for_every_original_call(self):
+        message = {"role": "assistant", "content": None, "tool_calls": [
+            {"id": "one", "type": "function", "function": {"name": "check_rules", "arguments": "{}"}},
+            {"id": "two", "type": "function", "function": {"name": "query_slots", "arguments": "{}"}}]}
+        model = self.fake_model(message)
+        req, state = validate_request(request()), initial_state("M01")
+        with self.assertRaises(ModelProtocolError):
+            model.choose(req, state, [])
+        message["tool_calls"] = [{"id": "three", "type": "function", "function": {
+            "name": "read_material", "arguments": '{"rationale":"read first"}'}}]
+        model.choose(req, state, [{"recoverable": True, "model_error": "MODEL_EXPECTED_ONE_TOOL_CALL"}])
+        messages = self.opener.requests[-1]["messages"]
+        replies = [m for m in messages if m["role"] == "tool"]
+        self.assertEqual([m["tool_call_id"] for m in replies], ["one", "two"])
+        self.assertTrue(all(json.loads(m["content"])["executed"] is False for m in replies))
+        self.assertEqual(messages[-1]["role"], "user")
+
+    def test_zero_tool_response_replays_actual_text_and_corrective_instruction(self):
+        message = {"role": "assistant", "content": "I will inspect the metadata."}
+        model = self.fake_model(message)
+        req, state = validate_request(request()), initial_state("M01")
+        with self.assertRaises(ModelProtocolError) as failure:
+            model.choose(req, state, [])
+        self.assertEqual(failure.exception.diagnostics["tool_calls_count"], 0)
+        message["tool_calls"] = [{"id": "next", "type": "function", "function": {
+            "name": "read_material", "arguments": '{"rationale":"read"}'}}]
+        model.choose(req, state, [{"recoverable": True, "model_error": "MODEL_EXPECTED_ONE_TOOL_CALL"}])
+        messages = self.opener.requests[-1]["messages"]
+        self.assertEqual(messages[-2]["content"], "I will inspect the metadata.")
+        self.assertFalse(any(m["role"] == "tool" for m in messages))
+
+    def test_long_rationale_is_rejected_without_execution_then_can_be_corrected(self):
+        message = {"role": "assistant", "content": None, "tool_calls": [{"id": "long", "type": "function", "function": {
+            "name": "read_material", "arguments": json.dumps({"rationale": "x" * 501})}}]}
+        model = self.fake_model(message)
+        req, state = validate_request(request()), initial_state("M01")
+        with self.assertRaisesRegex(ModelProtocolError, "MODEL_INVALID_RATIONALE"):
+            model.choose(req, state, [])
+        message["tool_calls"][0]["function"]["arguments"] = '{"rationale":"read metadata"}'
+        action = model.choose(req, state, [{"recoverable": True, "model_error": "MODEL_INVALID_RATIONALE"}])
+        self.assertEqual(action.tool, "read_material")
+        replies = [m for m in self.opener.requests[-1]["messages"] if m["role"] == "tool"]
+        self.assertFalse(json.loads(replies[0]["content"])["executed"])
+
     def test_invalid_json_arguments_rejected(self):
-        model = self.fake_model({"tool_calls": [{"function": {"name": "read_material", "arguments": "INVALID"}}]})
+        model = self.fake_model({"role": "assistant", "tool_calls": [{"id": "invalid-json", "function": {"name": "read_material", "arguments": "INVALID"}}]})
         with self.assertRaisesRegex(ModelError, "MODEL_INVALID_RESPONSE"):
             model.choose(validate_request(request()), initial_state("M01"), [])
 

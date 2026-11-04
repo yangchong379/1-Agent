@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前验证状态：离线工程验证已完成；真实 DeepSeek 已跑通并核查1条冲突排期路径，完整真实模型评估尚未完成。** 项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；至少还须补充另一条不同工具观察下的真实模型路径并审核记录。
+**当前验证状态：54个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 完整评估8/13通过，5项失败，原始记录已保留。** 已观察正常、资料不足、风险阻断、补查成功等多条真实动态路径。模型协议纠正与工具反馈已修复并通过回归测试，修复后的真实失败项重跑尚待完成。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明，不将首轮失败改写为成功。
 
 ## 评审入口
 
@@ -10,6 +10,7 @@
 |---|---|
 | 实际离线结果与完整 Trace | [examples/runs/mock/REPORT.md](examples/runs/mock/REPORT.md) |
 | 已核查的真实冲突路径 | [examples/runs/live-single/REPORT.md](examples/runs/live-single/REPORT.md) |
+| 首轮完整真实评估与失败复核 | [examples/runs/live/REVIEW.md](examples/runs/live/REVIEW.md) |
 | 测试执行明细 | [examples/runs/mock/tests.txt](examples/runs/mock/tests.txt) |
 | 结构化结果、环境、源码摘要 | [examples/runs/mock/summary.json](examples/runs/mock/summary.json) |
 | 需求及验收映射 | [docs/01-requirements.md](docs/01-requirements.md) |
@@ -85,6 +86,14 @@ py -3.11 scripts/connect_deepseek.py --evaluate
 ```
 
 该命令在临时数据库中执行13组真实场景，会进行多次付费 API 调用，记录保存到 `examples/runs/live/`，不会改变之前单案例的草稿。每个场景完成会打印 PASS/FAIL；请保持窗口打开直到结束。脚本自动断言通过后仍须人工核查实际 Trace。
+
+第一轮完整评估结束后，修复代码并只补跑失败项可使用：
+
+```powershell
+py -3.11 scripts/connect_deepseek.py --retry-failed
+```
+
+该命令从第一轮 `summary.json` 选择失败场景，把新结果写到独立的 `examples/runs/live-retry-N/`，保留原始失败结果。没有失败项时不会请求密钥或调用模型。请不要用重新执行 `--evaluate` 覆盖需要保留的第一轮证据。
 
 适配实现使用 Chat Completions function calling，可配置 DeepSeek 或提供该协议的服务。用户已提供 DeepSeek 官方平台链接；2026-11-04 核对官方文档，`deepseek-flash` 对应 DeepSeek-V4.1-Flash-1017，根地址为 `https://api.deepseek.com`。此处是官方型号映射，并非远端调用成功记录。依据：[DeepSeek 首次调用](https://api-docs.deepseek.com/)、[模型列表](https://api-docs.deepseek.com/quick_start/pricing/)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)。
 

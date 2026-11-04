@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "no_slots",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T17:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T06:09:50.901708+00:00",
+  "dataset_sha256": "1dd2258d5a6db7503cc1226944a6fc618048dbef2623d9219a33463e379036dc",
+  "max_steps": 40,
+  "model_calls": 4,
+  "tool_calls": 4,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "M01",
+      "status": "no_available_slot",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T17:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "M01",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": null
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "M01",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [],
+        "occupied": [
+          {
+            "slot": "2026-11-05T17:00+08:00",
+            "conflicts": [
+              "variant-17"
+            ]
+          },
+          {
+            "slot": "2026-11-05T18:00+08:00",
+            "conflicts": [
+              "existing-18"
+            ]
+          },
+          {
+            "slot": "2026-11-05T19:00+08:00",
+            "conflicts": [
+              "variant-19"
+            ]
+          },
+          {
+            "slot": "2026-11-05T20:00+08:00",
+            "conflicts": [
+              "variant-20"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-05T17:00+08:00",
+        "preferred_available": false
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "material_id": "M01",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "查询结果没有可用时段，交由用户处理"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "no_available_slot"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "duplicate",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T18:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T06:09:50.658970+00:00",
+  "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
+  "max_steps": 40,
+  "model_calls": 5,
+  "tool_calls": 5,
+  "execution_complete": true,
+  "all_drafts_saved": true,
+  "items": [
+    {
+      "material_id": "M01",
+      "status": "awaiting_confirmation",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true,
+      "suggested_slot": "2026-11-05T19:00+08:00",
+      "pending_confirmation": [
+        "请确认是否将 2026-11-05T18:00+08:00 调整为 2026-11-05T19:00+08:00；原硬性要求保持不变"
+      ],
+      "draft_save_status": "saved",
+      "draft_id": "draft-ce6cc4ddcba30c13",
+      "save_receipt": {
+        "ok": true,
+        "code": "DUPLICATE",
+        "draft_id": "draft-ce6cc4ddcba30c13",
+        "slot": "2026-11-05T19:00+08:00",
+        "confirmation": "pending_user"
+      },
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "M01",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": {
+          "id": "draft-ce6cc4ddcba30c13",
+          "material_id": "M01",
+          "channel": "douyin",
+          "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-05T18:00+08:00\"}",
+          "slot": "2026-11-05T19:00+08:00",
+          "end": "2026-11-05T20:00:00+08:00",
+          "confirmation": "pending_user"
+        }
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "M01",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-05T17:00+08:00",
+          "2026-11-05T19:00+08:00",
+          "2026-11-05T20:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-05T18:00+08:00",
+            "conflicts": [
+              "existing-18"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-05T18:00+08:00",
+        "preferred_available": false
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "material_id": "M01",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-05T19:00+08:00"
+        },
+        "rationale": "根据查询选择可用时段；硬性要求的替代时段须等待用户确认"
+      },
+      "observation": {
+        "ok": true,
+        "code": "DUPLICATE",
+        "draft_id": "draft-ce6cc4ddcba30c13",
+        "slot": "2026-11-05T19:00+08:00",
+        "confirmation": "pending_user"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "material_id": "M01",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "已收到保存回执，返回真实草稿和确认状态"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "awaiting_confirmation"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

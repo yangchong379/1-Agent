@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "supplement",
+    "material_ids": [
+      "M02"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T17:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T06:09:50.707971+00:00",
+  "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
+  "max_steps": 40,
+  "model_calls": 7,
+  "tool_calls": 7,
+  "execution_complete": true,
+  "all_drafts_saved": true,
+  "items": [
+    {
+      "material_id": "M02",
+      "status": "draft_ready",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T17:00+08:00",
+      "hard_time": true,
+      "suggested_slot": "2026-11-05T17:00+08:00",
+      "pending_confirmation": [],
+      "draft_save_status": "saved",
+      "draft_id": "draft-503a9301440d8665",
+      "save_receipt": {
+        "ok": true,
+        "code": "CREATED",
+        "draft_id": "draft-503a9301440d8665",
+        "slot": "2026-11-05T17:00+08:00",
+        "confirmation": "confirmed"
+      },
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M02",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "M02",
+          "title": "秋日风景",
+          "description": "待补版权凭证的原创短片",
+          "contains_private_data": false
+        },
+        "existing_draft": null
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "M02",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "supplement_metadata"
+    },
+    {
+      "step": 3,
+      "material_id": "M02",
+      "action": {
+        "tool": "supplement_metadata",
+        "arguments": {},
+        "rationale": "规则返回缺失字段，补查合成资料"
+      },
+      "observation": {
+        "ok": true,
+        "found": {
+          "copyright": "licensed"
+        },
+        "source": "synthetic_supplements"
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 4,
+      "material_id": "M02",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 5,
+      "material_id": "M02",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-05T17:00+08:00",
+          "2026-11-05T19:00+08:00",
+          "2026-11-05T20:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-05T18:00+08:00",
+            "conflicts": [
+              "existing-18"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-05T17:00+08:00",
+        "preferred_available": true
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 6,
+      "material_id": "M02",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-05T17:00+08:00"
+        },
+        "rationale": "根据查询选择可用时段；硬性要求的替代时段须等待用户确认"
+      },
+      "observation": {
+        "ok": true,
+        "code": "CREATED",
+        "draft_id": "draft-503a9301440d8665",
+        "slot": "2026-11-05T17:00+08:00",
+        "confirmation": "confirmed"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 7,
+      "material_id": "M02",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "已收到保存回执，返回真实草稿和确认状态"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "draft_ready"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

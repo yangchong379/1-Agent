@@ -1,0 +1,12 @@
+{
+  "request_id": "confirmed",
+  "material_ids": [
+    "M01"
+  ],
+  "channel": "douyin",
+  "preferred_slot": "2026-11-05T18:00+08:00",
+  "hard_time": true,
+  "approved_slots": {
+    "M01": "2026-11-05T19:00+08:00"
+  }
+}

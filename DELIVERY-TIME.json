@@ -1,0 +1,8 @@
+{
+  "timezone": "Asia/Hong_Kong",
+  "first_recorded_at": "2026-11-04T13:53:21+08:00",
+  "delivery_preparation_cutoff": "2026-11-04T14:11:12.066702+08:00",
+  "elapsed_wall_clock_minutes": 17.85,
+  "scope": "AI implementation and dialogue until delivery preparation cutoff; not candidate independent work",
+  "candidate_independent_time": "not recorded"
+}

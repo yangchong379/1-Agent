@@ -1,0 +1,251 @@
+{
+  "mode": "offline_mock",
+  "generated_at_utc": "2026-11-04T06:09:50.199668+00:00",
+  "python": "3.11.4",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "source_sha256": "bfa3f5ec45751a5c7130b57ad6c5489d90235add86b62db5ea753454f71f7851",
+  "cases": [
+    {
+      "case": "normal",
+      "expected_status": "draft_ready",
+      "actual_status": "draft_ready",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "exact_requested_slot": true
+      },
+      "passed": true,
+      "result": "normal/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "conflict",
+      "expected_status": "awaiting_confirmation",
+      "actual_status": "awaiting_confirmation",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "expected_alternative": true,
+        "pending_exact_user_confirmation": true
+      },
+      "passed": true,
+      "result": "conflict/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "missing",
+      "expected_status": "needs_info",
+      "actual_status": "needs_info",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "missing/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "risk",
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "risk/result.json",
+      "model_calls": 3,
+      "fault": null
+    },
+    {
+      "case": "save_failure",
+      "expected_status": "save_failed",
+      "actual_status": "save_failed",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "save_failure/result.json",
+      "model_calls": 6,
+      "fault": "save_draft"
+    },
+    {
+      "case": "duplicate",
+      "expected_status": "awaiting_confirmation",
+      "actual_status": "awaiting_confirmation",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "expected_alternative": true,
+        "pending_exact_user_confirmation": true,
+        "same_draft_id": true,
+        "single_persisted_draft": true
+      },
+      "passed": true,
+      "result": "duplicate/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "supplement",
+      "expected_status": "draft_ready",
+      "actual_status": "draft_ready",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "exact_requested_slot": true
+      },
+      "passed": true,
+      "result": "supplement/result.json",
+      "model_calls": 7,
+      "fault": null
+    },
+    {
+      "case": "confirmed",
+      "expected_status": "draft_ready",
+      "actual_status": "draft_ready",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "same_draft_id": true,
+        "single_persisted_draft": true,
+        "trusted_approval_applied": true
+      },
+      "passed": true,
+      "result": "confirmed/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "changed_occupancy",
+      "expected_status": "awaiting_confirmation",
+      "actual_status": "awaiting_confirmation",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "expected_alternative": true,
+        "pending_exact_user_confirmation": true,
+        "same_draft_id": true,
+        "single_persisted_draft": true
+      },
+      "passed": true,
+      "result": "changed_occupancy/result.json",
+      "model_calls": 5,
+      "fault": null
+    },
+    {
+      "case": "no_slots",
+      "expected_status": "no_available_slot",
+      "actual_status": "no_available_slot",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "no_slots/result.json",
+      "model_calls": 4,
+      "fault": null
+    },
+    {
+      "case": "step_limit",
+      "expected_status": "incomplete_step_limit",
+      "actual_status": "incomplete_step_limit",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "step_limit/result.json",
+      "model_calls": 2,
+      "fault": null
+    },
+    {
+      "case": "batch",
+      "expected_status": "draft_ready",
+      "actual_status": "draft_ready",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "two_distinct_nonconflicting_drafts": true,
+        "second_item_requires_confirmation": true
+      },
+      "passed": true,
+      "result": "batch/result.json",
+      "model_calls": 10,
+      "fault": null
+    },
+    {
+      "case": "privacy_copyright",
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "checks": {
+        "expected_first_item_status": true,
+        "draft_only": true,
+        "original_time_preserved": true,
+        "bounded_calls": true,
+        "save_claims_match_database": true,
+        "no_draft_created": true
+      },
+      "passed": true,
+      "result": "privacy_copyright/result.json",
+      "model_calls": 3,
+      "fault": null
+    }
+  ],
+  "real_model_decision_quality_verified": false,
+  "boundary": "Automatic business assertions only; manually inspect live traces for decision quality.",
+  "duration_seconds": 0.797,
+  "passed": 13,
+  "total": 13,
+  "unit_tests": {
+    "run": 39,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  }
+}

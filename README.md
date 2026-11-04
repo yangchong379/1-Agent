@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前验证状态：55个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 评估8/13通过，修复后五个失败项重跑5/5通过。** 首轮失败和重跑均保留，[累计13场景证据及复核](examples/runs/LIVE-REVIEW.md)覆盖全部验收点，但这是跨版本累计记录，不是当前版本单次全量13/13或稳定成功率。另已修正保存后重读导致审核状态显示为unchecked的问题，并以实际路径做离线回归；该展示修正未新增模型调用。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明。
+**核心历史验证状态：55个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 评估8/13通过，修复后五个失败项重跑5/5通过。** 首轮失败和重跑均保留，[累计13场景证据及复核](examples/runs/LIVE-REVIEW.md)覆盖全部验收点，但这是跨版本累计记录，不是当前版本单次全量13/13或稳定成功率。另已修正保存后重读导致审核状态显示为unchecked的问题，并以实际路径做离线回归；该展示修正未新增模型调用。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明。
 
 ## 个人贡献与AI协作
 
@@ -129,3 +129,15 @@ Base URL 不含 `/chat/completions`，代码会拼接该路径；密钥来自环
 ## GitHub 提交
 
 题号：**1 · 素材审核与发布排期 Agent**。GitHub URL：[https://github.com/yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。完整提交 SHA 可执行 `git rev-parse HEAD` 获取，并与 GitHub 最新提交核对。后续补跑真实模型、补记候选人实际贡献并提交后，应使用更新后的最终 SHA。详见 [交接说明](docs/06-handoff.md)。
+
+## 连续混合需求评估（新增）
+
+新增两天、两个随机种子的连续需求回放，共96条请求；同一天所有到达共用一个SQLite数据库，每次到达重新连接。实际业务目标完成22/96，边界和状态检查96/96。这些是Mock离线结果，不能证明真实模型线上完成率。[流量评估说明](docs/08-product-traffic.md)、[第1天实际记录](examples/traffic/mock-product-day1/REPORT.md)、[第2天实际记录](examples/traffic/mock-product-day2/REPORT.md)、[当前57个回归测试](examples/traffic/regression-tests.txt)。
+
+```bash
+python scripts/traffic.py --model mock --count 48 --seed 20261104 --output .runtime/traffic-new
+# 配置模型环境变量后使用真实选择：
+python scripts/traffic.py --model live --count 24 --seed 20261104 --output .runtime/live-traffic-new
+```
+
+每条记录包含输入、实际输出/Trace、前后全量状态；没有预设“每类必须成功”的理想动作路径。未完成与保护检查通过分开计数；历史验收记录不覆盖，历史源码摘要属于当时src/tests/scripts集合。本次新增评估脚本和测试改变整体摘要，运行src与上次交付基线逐字相同。

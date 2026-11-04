@@ -1,0 +1,805 @@
+[
+  {
+    "sequence": 1,
+    "arrival_minute": 0,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-000",
+      "material_ids": [
+        "U000"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-07T12:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 2,
+    "arrival_minute": 3,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-001",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 3,
+    "arrival_minute": 6,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-000",
+      "material_ids": [
+        "U000"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-07T12:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "query_slots"
+  },
+  {
+    "sequence": 4,
+    "arrival_minute": 9,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-003",
+      "material_ids": [
+        "U003"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 5,
+    "arrival_minute": 12,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-004",
+      "material_ids": [
+        "U004"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 6,
+    "arrival_minute": 16,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-001",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 7,
+    "arrival_minute": 18,
+    "operator": "运营A",
+    "intent": "review_proposal",
+    "request": {
+      "request_id": "operator-followup-006",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null,
+    "review_sequence": 2
+  },
+  {
+    "sequence": 8,
+    "arrival_minute": 22,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-004",
+      "material_ids": [
+        "U004"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null,
+    "external_booking": {
+      "id": "late-booking-7",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    }
+  },
+  {
+    "sequence": 9,
+    "arrival_minute": 25,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-008",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 10,
+    "arrival_minute": 28,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-009",
+      "material_ids": [
+        "U009"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-08T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 11,
+    "arrival_minute": 31,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "save_draft"
+  },
+  {
+    "sequence": 12,
+    "arrival_minute": 35,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-011",
+      "material_ids": [
+        "U011"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-07T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 13,
+    "arrival_minute": 38,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 14,
+    "arrival_minute": 40,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-013",
+      "material_ids": [
+        "U013"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-06T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 15,
+    "arrival_minute": 43,
+    "operator": "运营C",
+    "intent": "changed_same_id",
+    "request": {
+      "request_id": "operator-003",
+      "material_ids": [
+        "U003"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-10T10:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 16,
+    "arrival_minute": 47,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 17,
+    "arrival_minute": 50,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-016",
+      "material_ids": [
+        "U016"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null,
+    "external_booking": {
+      "id": "late-booking-16",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    }
+  },
+  {
+    "sequence": 18,
+    "arrival_minute": 52,
+    "operator": "运营C",
+    "intent": "review_proposal",
+    "request": {
+      "request_id": "operator-followup-017",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null,
+    "review_sequence": 9
+  },
+  {
+    "sequence": 19,
+    "arrival_minute": 55,
+    "operator": "运营B",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-001",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 20,
+    "arrival_minute": 58,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-019",
+      "material_ids": [
+        "U019"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 21,
+    "arrival_minute": 61,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 22,
+    "arrival_minute": 63,
+    "operator": "运营C",
+    "intent": "changed_same_id",
+    "request": {
+      "request_id": "operator-followup-017",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-10T16:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 23,
+    "arrival_minute": 68,
+    "operator": "运营B",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-000",
+      "material_ids": [
+        "U000"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-07T12:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 24,
+    "arrival_minute": 71,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-023",
+      "material_ids": [
+        "U023"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 25,
+    "arrival_minute": 73,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-004",
+      "material_ids": [
+        "U004"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 26,
+    "arrival_minute": 77,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-025",
+      "material_ids": [
+        "U025"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T19:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "query_slots",
+    "external_booking": {
+      "id": "late-booking-25",
+      "channel": "douyin",
+      "start": "2026-11-05T19:00+08:00",
+      "end": "2026-11-05T20:00+08:00"
+    }
+  },
+  {
+    "sequence": 27,
+    "arrival_minute": 80,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-026",
+      "material_ids": [
+        "U026"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 28,
+    "arrival_minute": 81,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-027",
+      "material_ids": [
+        "U027"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-08T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 29,
+    "arrival_minute": 86,
+    "operator": "运营B",
+    "intent": "review_proposal",
+    "request": {
+      "request_id": "operator-followup-028",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null,
+    "review_sequence": 18
+  },
+  {
+    "sequence": 30,
+    "arrival_minute": 87,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "save_draft"
+  },
+  {
+    "sequence": 31,
+    "arrival_minute": 90,
+    "operator": "运营B",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-001",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 32,
+    "arrival_minute": 93,
+    "operator": "运营C",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-031",
+      "material_ids": [
+        "U031"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-06T19:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 33,
+    "arrival_minute": 96,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-032",
+      "material_ids": [
+        "U032"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-06T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 34,
+    "arrival_minute": 99,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-001",
+      "material_ids": [
+        "U001"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "save_draft"
+  },
+  {
+    "sequence": 35,
+    "arrival_minute": 103,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-followup-028",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null,
+    "external_booking": {
+      "id": "late-booking-34",
+      "channel": "douyin",
+      "start": "2026-11-05T11:00+08:00",
+      "end": "2026-11-05T12:00+08:00"
+    }
+  },
+  {
+    "sequence": 36,
+    "arrival_minute": 105,
+    "operator": "运营A",
+    "intent": "changed_same_id",
+    "request": {
+      "request_id": "operator-025",
+      "material_ids": [
+        "U025"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-10T20:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 37,
+    "arrival_minute": 110,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-followup-028",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 38,
+    "arrival_minute": 112,
+    "operator": "运营A",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-023",
+      "material_ids": [
+        "U023"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 39,
+    "arrival_minute": 114,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-038",
+      "material_ids": [
+        "U038"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-07T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 40,
+    "arrival_minute": 117,
+    "operator": "运营B",
+    "intent": "review_proposal",
+    "request": {
+      "request_id": "operator-followup-039",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null,
+    "review_sequence": 30
+  },
+  {
+    "sequence": 41,
+    "arrival_minute": 122,
+    "operator": "运营B",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-followup-028",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": "save_draft"
+  },
+  {
+    "sequence": 42,
+    "arrival_minute": 123,
+    "operator": "运营C",
+    "intent": "changed_same_id",
+    "request": {
+      "request_id": "operator-010",
+      "material_ids": [
+        "U010"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-10T16:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 43,
+    "arrival_minute": 126,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-042",
+      "material_ids": [
+        "U042"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-06T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 44,
+    "arrival_minute": 130,
+    "operator": "运营C",
+    "intent": "changed_same_id",
+    "request": {
+      "request_id": "operator-followup-028",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-10T16:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null,
+    "external_booking": {
+      "id": "late-booking-43",
+      "channel": "douyin",
+      "start": "2026-11-10T16:00+08:00",
+      "end": "2026-11-10T17:00+08:00"
+    }
+  },
+  {
+    "sequence": 45,
+    "arrival_minute": 134,
+    "operator": "运营A",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-044",
+      "material_ids": [
+        "U044"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 46,
+    "arrival_minute": 137,
+    "operator": "运营B",
+    "intent": "new",
+    "request": {
+      "request_id": "operator-045",
+      "material_ids": [
+        "U045",
+        "U046"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-05T18:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": null
+  },
+  {
+    "sequence": 47,
+    "arrival_minute": 139,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-042",
+      "material_ids": [
+        "U042"
+      ],
+      "channel": "xiaohongshu",
+      "preferred_slot": "2026-11-06T17:00+08:00",
+      "hard_time": true
+    },
+    "service_fault": "save_draft"
+  },
+  {
+    "sequence": 48,
+    "arrival_minute": 143,
+    "operator": "运营C",
+    "intent": "repeat",
+    "request": {
+      "request_id": "operator-followup-017",
+      "material_ids": [
+        "U008"
+      ],
+      "channel": "douyin",
+      "preferred_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false
+    },
+    "service_fault": null
+  }
+]

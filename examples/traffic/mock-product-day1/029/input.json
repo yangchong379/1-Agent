@@ -1,0 +1,19 @@
+{
+  "sequence": 29,
+  "arrival_minute": 84,
+  "operator": "运营C",
+  "intent": "review_proposal",
+  "request": {
+    "request_id": "operator-followup-028",
+    "material_ids": [
+      "U004"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-06T19:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "service_fault": null,
+  "review_sequence": 5,
+  "operator_review": "Synthetic operator explicitly approves only previously proposed slots; no approval inferred by agent."
+}

@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-followup-028",
+    "material_ids": [
+      "U004"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-06T19:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:45.468655+00:00",
+  "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+  "max_steps": 40,
+  "model_calls": 5,
+  "tool_calls": 5,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": true,
+  "items": [
+    {
+      "material_id": "U004",
+      "status": "draft_ready",
+      "review_status": "approved",
+      "review_basis": "at_successful_save",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-06T19:00+08:00",
+      "hard_time": true,
+      "suggested_slot": "2026-11-06T19:00+08:00",
+      "pending_confirmation": [],
+      "draft_save_status": "saved",
+      "draft_id": "draft-cb537cca79532fcb",
+      "save_receipt": {
+        "ok": true,
+        "code": "DUPLICATE",
+        "draft_id": "draft-cb537cca79532fcb",
+        "slot": "2026-11-06T19:00+08:00",
+        "confirmation": "confirmed"
+      },
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U004",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U004",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": {
+          "id": "draft-cb537cca79532fcb",
+          "material_id": "U004",
+          "channel": "douyin",
+          "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-06T19:00+08:00\"}",
+          "slot": "2026-11-06T19:00+08:00",
+          "end": "2026-11-06T20:00:00+08:00",
+          "confirmation": "confirmed"
+        },
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U004",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "U004",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-06T09:00+08:00",
+          "2026-11-06T10:00+08:00",
+          "2026-11-06T11:00+08:00",
+          "2026-11-06T13:00+08:00",
+          "2026-11-06T14:00+08:00",
+          "2026-11-06T15:00+08:00",
+          "2026-11-06T16:00+08:00",
+          "2026-11-06T17:00+08:00",
+          "2026-11-06T19:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-06T12:00+08:00",
+            "conflicts": [
+              "campaign-douyin-6-12"
+            ]
+          },
+          {
+            "slot": "2026-11-06T18:00+08:00",
+            "conflicts": [
+              "campaign-douyin-6-18"
+            ]
+          },
+          {
+            "slot": "2026-11-06T20:00+08:00",
+            "conflicts": [
+              "draft-5feefd91c9b2878e"
+            ]
+          },
+          {
+            "slot": "2026-11-06T21:00+08:00",
+            "conflicts": [
+              "draft-344a08a77a1471ab"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-06T19:00+08:00",
+        "preferred_available": true
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "material_id": "U004",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-06T19:00+08:00"
+        },
+        "rationale": "根据查询选择可用时段；硬性要求的替代时段须等待用户确认"
+      },
+      "observation": {
+        "ok": true,
+        "code": "DUPLICATE",
+        "draft_id": "draft-cb537cca79532fcb",
+        "slot": "2026-11-06T19:00+08:00",
+        "confirmation": "confirmed"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "material_id": "U004",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "已收到保存回执，返回真实草稿和确认状态"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "draft_ready"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

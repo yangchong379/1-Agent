@@ -1,0 +1,241 @@
+{
+  "drafts": [
+    {
+      "id": "draft-53e6c5c46ac5f747",
+      "material_id": "U000",
+      "channel": "douyin",
+      "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-07T12:00+08:00\"}",
+      "slot": "2026-11-07T13:00+08:00",
+      "end": "2026-11-07T14:00:00+08:00",
+      "confirmation": "pending_user"
+    },
+    {
+      "id": "draft-7b15bd47bf48d55c",
+      "material_id": "U003",
+      "channel": "xiaohongshu",
+      "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-05T11:00+08:00\"}",
+      "slot": "2026-11-05T11:00+08:00",
+      "end": "2026-11-05T12:00:00+08:00",
+      "confirmation": "confirmed"
+    },
+    {
+      "id": "draft-cb537cca79532fcb",
+      "material_id": "U004",
+      "channel": "douyin",
+      "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-05T18:00+08:00\"}",
+      "slot": "2026-11-05T19:00+08:00",
+      "end": "2026-11-05T20:00:00+08:00",
+      "confirmation": "pending_user"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "campaign-douyin-10-12",
+      "channel": "douyin",
+      "start": "2026-11-10T12:00+08:00",
+      "end": "2026-11-10T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-10-18",
+      "channel": "douyin",
+      "start": "2026-11-10T18:00+08:00",
+      "end": "2026-11-10T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-11-12",
+      "channel": "douyin",
+      "start": "2026-11-11T12:00+08:00",
+      "end": "2026-11-11T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-11-18",
+      "channel": "douyin",
+      "start": "2026-11-11T18:00+08:00",
+      "end": "2026-11-11T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-5-12",
+      "channel": "douyin",
+      "start": "2026-11-05T12:00+08:00",
+      "end": "2026-11-05T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-5-18",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-6-12",
+      "channel": "douyin",
+      "start": "2026-11-06T12:00+08:00",
+      "end": "2026-11-06T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-6-18",
+      "channel": "douyin",
+      "start": "2026-11-06T18:00+08:00",
+      "end": "2026-11-06T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-7-12",
+      "channel": "douyin",
+      "start": "2026-11-07T12:00+08:00",
+      "end": "2026-11-07T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-7-18",
+      "channel": "douyin",
+      "start": "2026-11-07T18:00+08:00",
+      "end": "2026-11-07T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-8-12",
+      "channel": "douyin",
+      "start": "2026-11-08T12:00+08:00",
+      "end": "2026-11-08T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-8-18",
+      "channel": "douyin",
+      "start": "2026-11-08T18:00+08:00",
+      "end": "2026-11-08T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-9-12",
+      "channel": "douyin",
+      "start": "2026-11-09T12:00+08:00",
+      "end": "2026-11-09T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-9-18",
+      "channel": "douyin",
+      "start": "2026-11-09T18:00+08:00",
+      "end": "2026-11-09T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-10-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-10T12:00+08:00",
+      "end": "2026-11-10T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-10-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-10T18:00+08:00",
+      "end": "2026-11-10T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-11-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-11T12:00+08:00",
+      "end": "2026-11-11T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-11-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-11T18:00+08:00",
+      "end": "2026-11-11T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-5-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-05T12:00+08:00",
+      "end": "2026-11-05T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-5-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-6-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-06T12:00+08:00",
+      "end": "2026-11-06T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-6-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-06T18:00+08:00",
+      "end": "2026-11-06T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-7-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-07T12:00+08:00",
+      "end": "2026-11-07T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-7-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-07T18:00+08:00",
+      "end": "2026-11-07T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-8-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-08T12:00+08:00",
+      "end": "2026-11-08T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-8-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-08T18:00+08:00",
+      "end": "2026-11-08T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-9-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-09T12:00+08:00",
+      "end": "2026-11-09T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-9-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-09T18:00+08:00",
+      "end": "2026-11-09T19:00+08:00"
+    },
+    {
+      "id": "late-booking-7",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    }
+  ],
+  "requests": [
+    {
+      "id": "operator-000",
+      "fingerprint": "59d5f354f60e4debe9f75f2dc71eba384c05adfbd97ad266955ae5817aaeb4de"
+    },
+    {
+      "id": "operator-001",
+      "fingerprint": "07c4e37d3ce280557f0c743bb3ddeb6eb4ee0df4a0e3ba792eec4e99cb50f060"
+    },
+    {
+      "id": "operator-003",
+      "fingerprint": "0a889b7ee6f2aca1058b923cf9641c962b1303d0ec21662437585f1fafebfef4"
+    },
+    {
+      "id": "operator-004",
+      "fingerprint": "47ed4d6a743e2bf3f2375949563497f782b933807c0f8716da81659774b6ae72"
+    },
+    {
+      "id": "operator-008",
+      "fingerprint": "fcc067471665d85ea939ff009d4b3c208f5a658d136ccaa829c75f3e5d4728ab"
+    },
+    {
+      "id": "operator-009",
+      "fingerprint": "2c2bdedeb19b4cf5477ebd79002df6902d258e1987c43a515302aebedf09c8ff"
+    },
+    {
+      "id": "operator-010",
+      "fingerprint": "5b83818188b8588d46ac000cdc9d1ca583add17e0405b71f6079cfa72f286b90"
+    },
+    {
+      "id": "operator-followup-006",
+      "fingerprint": "3a197ffa0c9944dc05638ec389535f8b2b6b3ec7b3295e4d0967007f96dfe7bb"
+    }
+  ]
+}

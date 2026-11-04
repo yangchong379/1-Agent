@@ -1,0 +1,24 @@
+{
+  "completed": 48,
+  "total": 48,
+  "latest": {
+    "sequence": 48,
+    "statuses": [
+      "awaiting_confirmation"
+    ],
+    "business_goal_met": false,
+    "checks": {
+      "bounded": true,
+      "draft_only": true,
+      "hard_requirements_retained": true,
+      "save_receipts_real": true,
+      "confirmation_authority": true,
+      "saved_slot_currently_free": true,
+      "saved_review_approved": true,
+      "unique_material_channel": true,
+      "unchanged_unrelated_drafts": true
+    },
+    "invariants_passed": true,
+    "result": "048/result.json"
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-024",
+    "material_ids": [
+      "U024",
+      "U025"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-08T12:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:45.271101+00:00",
+  "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+  "max_steps": 40,
+  "model_calls": 12,
+  "tool_calls": 12,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U024",
+      "status": "awaiting_confirmation",
+      "review_status": "approved",
+      "review_basis": "at_successful_save",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-08T12:00+08:00",
+      "hard_time": true,
+      "suggested_slot": "2026-11-08T13:00+08:00",
+      "pending_confirmation": [
+        "请确认是否将 2026-11-08T12:00+08:00 调整为 2026-11-08T13:00+08:00；原硬性要求保持不变"
+      ],
+      "draft_save_status": "saved",
+      "draft_id": "draft-9a79a845f6dbc731",
+      "save_receipt": {
+        "ok": true,
+        "code": "CREATED",
+        "draft_id": "draft-9a79a845f6dbc731",
+        "slot": "2026-11-08T13:00+08:00",
+        "confirmation": "pending_user"
+      },
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    },
+    {
+      "material_id": "U025",
+      "status": "needs_info",
+      "review_status": "needs_info",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [],
+      "missing_fields": [
+        "copyright"
+      ],
+      "requested_slot": "2026-11-08T12:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "补充 copyright"
+      ],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U024",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U024",
+          "title": "秋日风景",
+          "description": "待补版权凭证的原创短片",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U024",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "supplement_metadata"
+    },
+    {
+      "step": 3,
+      "material_id": "U024",
+      "action": {
+        "tool": "supplement_metadata",
+        "arguments": {},
+        "rationale": "规则返回缺失字段，补查合成资料"
+      },
+      "observation": {
+        "ok": true,
+        "found": {
+          "copyright": "licensed"
+        },
+        "source": "synthetic_supplements",
+        "review_required": true,
+        "note": "Run check_rules again after this lookup, even when found is empty."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 4,
+      "material_id": "U024",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 5,
+      "material_id": "U024",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-08T09:00+08:00",
+          "2026-11-08T10:00+08:00",
+          "2026-11-08T11:00+08:00",
+          "2026-11-08T13:00+08:00",
+          "2026-11-08T14:00+08:00",
+          "2026-11-08T15:00+08:00",
+          "2026-11-08T16:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-08T12:00+08:00",
+            "conflicts": [
+              "campaign-douyin-8-12"
+            ]
+          },
+          {
+            "slot": "2026-11-08T17:00+08:00",
+            "conflicts": [
+              "draft-f11266f0c51169b3"
+            ]
+          },
+          {
+            "slot": "2026-11-08T18:00+08:00",
+            "conflicts": [
+              "campaign-douyin-8-18"
+            ]
+          },
+          {
+            "slot": "2026-11-08T19:00+08:00",
+            "conflicts": [
+              "draft-7625c6dd2c7cbc95"
+            ]
+          },
+          {
+            "slot": "2026-11-08T20:00+08:00",
+            "conflicts": [
+              "draft-5063a12f0aa4b196"
+            ]
+          },
+          {
+            "slot": "2026-11-08T21:00+08:00",
+            "conflicts": [
+              "draft-68002fe952c6e631"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-08T12:00+08:00",
+        "preferred_available": false
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 6,
+      "material_id": "U024",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-08T13:00+08:00"
+        },
+        "rationale": "根据查询选择可用时段；硬性要求的替代时段须等待用户确认"
+      },
+      "observation": {
+        "ok": true,
+        "code": "CREATED",
+        "draft_id": "draft-9a79a845f6dbc731",
+        "slot": "2026-11-08T13:00+08:00",
+        "confirmation": "pending_user"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 7,
+      "material_id": "U024",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "已收到保存回执，返回真实草稿和确认状态"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "awaiting_confirmation"
+      },
+      "next_action": "stop"
+    },
+    {
+      "step": 8,
+      "material_id": "U025",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U025",
+          "title": "秋日风景",
+          "description": "待补版权凭证的原创短片",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 9,
+      "material_id": "U025",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "supplement_metadata"
+    },
+    {
+      "step": 10,
+      "material_id": "U025",
+      "action": {
+        "tool": "supplement_metadata",
+        "arguments": {},
+        "rationale": "规则返回缺失字段，补查合成资料"
+      },
+      "observation": {
+        "ok": true,
+        "found": {},
+        "source": "synthetic_supplements",
+        "review_required": true,
+        "note": "Run check_rules again after this lookup, even when found is empty."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 11,
+      "material_id": "U025",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 12,
+      "material_id": "U025",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "缺失信息或规则风险尚未解除，停止排期"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "needs_info"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

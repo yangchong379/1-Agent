@@ -1,0 +1,16 @@
+{
+  "sequence": 45,
+  "arrival_minute": 134,
+  "operator": "运营A",
+  "intent": "new",
+  "request": {
+    "request_id": "operator-044",
+    "material_ids": [
+      "U044"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T11:00+08:00",
+    "hard_time": true
+  },
+  "service_fault": null
+}

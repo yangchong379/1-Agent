@@ -1,0 +1,16 @@
+{
+  "sequence": 15,
+  "arrival_minute": 43,
+  "operator": "运营C",
+  "intent": "changed_same_id",
+  "request": {
+    "request_id": "operator-003",
+    "material_ids": [
+      "U003"
+    ],
+    "channel": "xiaohongshu",
+    "preferred_slot": "2026-11-10T10:00+08:00",
+    "hard_time": true
+  },
+  "service_fault": null
+}

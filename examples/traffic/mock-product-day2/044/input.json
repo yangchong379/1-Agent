@@ -1,0 +1,22 @@
+{
+  "sequence": 44,
+  "arrival_minute": 130,
+  "operator": "运营C",
+  "intent": "changed_same_id",
+  "request": {
+    "request_id": "operator-followup-028",
+    "material_ids": [
+      "U008"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-10T16:00+08:00",
+    "hard_time": false
+  },
+  "service_fault": null,
+  "external_booking": {
+    "id": "late-booking-43",
+    "channel": "douyin",
+    "start": "2026-11-10T16:00+08:00",
+    "end": "2026-11-10T17:00+08:00"
+  }
+}

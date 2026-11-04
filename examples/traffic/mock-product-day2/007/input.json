@@ -1,0 +1,19 @@
+{
+  "sequence": 7,
+  "arrival_minute": 18,
+  "operator": "运营A",
+  "intent": "review_proposal",
+  "request": {
+    "request_id": "operator-followup-006",
+    "material_ids": [
+      "U001"
+    ],
+    "channel": "xiaohongshu",
+    "preferred_slot": "2026-11-07T17:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "service_fault": null,
+  "review_sequence": 2,
+  "operator_review": "Synthetic operator explicitly approves only previously proposed slots; no approval inferred by agent."
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-009",
+    "material_ids": [
+      "U009"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T11:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:45.488264+00:00",
+  "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+  "max_steps": 40,
+  "model_calls": 5,
+  "tool_calls": 5,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U009",
+      "status": "needs_confirmation",
+      "review_status": "approved",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T11:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "已有草稿与本次要求冲突，需要用户明确处理"
+      ],
+      "draft_save_status": "failed",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": "EXISTING_DRAFT_REQUIREMENT_CONFLICT",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U009",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U009",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": {
+          "id": "draft-68002fe952c6e631",
+          "material_id": "U009",
+          "channel": "douyin",
+          "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-08T17:00+08:00\"}",
+          "slot": "2026-11-08T21:00+08:00",
+          "end": "2026-11-08T22:00:00+08:00",
+          "confirmation": "pending_user"
+        },
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U009",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "U009",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-05T09:00+08:00",
+          "2026-11-05T10:00+08:00",
+          "2026-11-05T11:00+08:00",
+          "2026-11-05T13:00+08:00",
+          "2026-11-05T14:00+08:00",
+          "2026-11-05T15:00+08:00",
+          "2026-11-05T16:00+08:00",
+          "2026-11-05T21:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-05T12:00+08:00",
+            "conflicts": [
+              "campaign-douyin-5-12"
+            ]
+          },
+          {
+            "slot": "2026-11-05T17:00+08:00",
+            "conflicts": [
+              "draft-be106a739eac6ed7"
+            ]
+          },
+          {
+            "slot": "2026-11-05T18:00+08:00",
+            "conflicts": [
+              "campaign-douyin-5-18"
+            ]
+          },
+          {
+            "slot": "2026-11-05T19:00+08:00",
+            "conflicts": [
+              "draft-7f68f302d6270774"
+            ]
+          },
+          {
+            "slot": "2026-11-05T20:00+08:00",
+            "conflicts": [
+              "draft-0dcbc0573719530a"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-05T11:00+08:00",
+        "preferred_available": true
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "material_id": "U009",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-05T11:00+08:00"
+        },
+        "rationale": "根据查询选择可用时段；硬性要求的替代时段须等待用户确认"
+      },
+      "observation": {
+        "ok": false,
+        "code": "EXISTING_DRAFT_REQUIREMENT_CONFLICT",
+        "draft_id": "draft-68002fe952c6e631"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "material_id": "U009",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "已有草稿约束冲突，需用户明确变更"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "needs_confirmation"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

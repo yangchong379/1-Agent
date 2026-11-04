@@ -1,0 +1,17 @@
+{
+  "sequence": 42,
+  "arrival_minute": 124,
+  "operator": "运营B",
+  "intent": "changed_same_id",
+  "request": {
+    "request_id": "operator-001",
+    "material_ids": [
+      "U001",
+      "U002"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-10T20:00+08:00",
+    "hard_time": false
+  },
+  "service_fault": "save_draft"
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-followup-017",
+    "material_ids": [
+      "U008"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T11:00+08:00",
+    "hard_time": false,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:47.370239+00:00",
+  "dataset_sha256": "f6734e8a0efddecdee24d2bb48fdac22a7bc351dfd188c58ef54fe3761fa9e5d",
+  "max_steps": 40,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U008",
+      "status": "blocked",
+      "review_status": "blocked",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [
+        {
+          "code": "PROHIBITED_CLAIM",
+          "reason": "包含禁用表述：保证收益"
+        }
+      ],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T11:00+08:00",
+      "hard_time": false,
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U008",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U008",
+          "title": "理财宣传",
+          "description": "保证收益",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U008",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "blocked",
+        "missing_fields": [],
+        "risks": [
+          {
+            "code": "PROHIBITED_CLAIM",
+            "reason": "包含禁用表述：保证收益"
+          }
+        ],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "material_id": "U008",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "缺失信息或规则风险尚未解除，停止排期"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "blocked"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

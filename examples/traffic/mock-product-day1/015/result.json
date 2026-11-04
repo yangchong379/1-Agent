@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-014",
+    "material_ids": [
+      "U014"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T19:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:44.875116+00:00",
+  "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+  "max_steps": 40,
+  "model_calls": 5,
+  "tool_calls": 5,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U014",
+      "status": "needs_info",
+      "review_status": "needs_info",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [],
+      "missing_fields": [
+        "copyright"
+      ],
+      "requested_slot": "2026-11-05T19:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "补充 copyright"
+      ],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U014",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U014",
+          "title": "秋日风景",
+          "description": "待补版权凭证的原创短片",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U014",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "supplement_metadata"
+    },
+    {
+      "step": 3,
+      "material_id": "U014",
+      "action": {
+        "tool": "supplement_metadata",
+        "arguments": {},
+        "rationale": "规则返回缺失字段，补查合成资料"
+      },
+      "observation": {
+        "ok": true,
+        "found": {},
+        "source": "synthetic_supplements",
+        "review_required": true,
+        "note": "Run check_rules again after this lookup, even when found is empty."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 4,
+      "material_id": "U014",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "material_id": "U014",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "缺失信息或规则风险尚未解除，停止排期"
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "needs_info"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

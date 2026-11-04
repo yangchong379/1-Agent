@@ -1,0 +1,664 @@
+{
+  "schema_version": "1.0",
+  "mode": "offline_mock",
+  "model": "deterministic-observation-policy-v1",
+  "request": {
+    "request_id": "operator-000",
+    "material_ids": [
+      "U000"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-07T12:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T14:42:46.916199+00:00",
+  "dataset_sha256": "f6734e8a0efddecdee24d2bb48fdac22a7bc351dfd188c58ef54fe3761fa9e5d",
+  "max_steps": 40,
+  "model_calls": 40,
+  "tool_calls": 40,
+  "protocol_rejections": 0,
+  "execution_complete": false,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U000",
+      "status": "incomplete_step_limit",
+      "review_status": "approved",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-07T12:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "step_limit",
+      "error": "TOOL_UNAVAILABLE",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U000",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "先读取素材与已有草稿"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U000",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": {
+          "id": "draft-53e6c5c46ac5f747",
+          "material_id": "U000",
+          "channel": "douyin",
+          "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-07T12:00+08:00\"}",
+          "slot": "2026-11-07T13:00+08:00",
+          "end": "2026-11-07T14:00:00+08:00",
+          "confirmation": "pending_user"
+        },
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "U000",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "根据已读取元数据执行规则检查"
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 4,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 5,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 6,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 7,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 8,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 9,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 10,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 11,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 12,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 13,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 14,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 15,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 16,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 17,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 18,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 19,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 20,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 21,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 22,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 23,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 24,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 25,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 26,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 27,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 28,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 29,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 30,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 31,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 32,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 33,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 34,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 35,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 36,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 37,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 38,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 39,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 40,
+      "material_id": "U000",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "读取最新时段占用，避免冲突"
+      },
+      "observation": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "tool": "query_slots"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "MOCK validates control flow only; no real model evidence"
+}

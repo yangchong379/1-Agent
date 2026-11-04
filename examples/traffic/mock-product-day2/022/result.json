@@ -1,0 +1,14 @@
+{
+  "status": "request_rejected",
+  "error": "REQUEST_ID_REUSED",
+  "trace": [],
+  "request": {
+    "request_id": "operator-followup-017",
+    "material_ids": [
+      "U008"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-10T16:00+08:00",
+    "hard_time": false
+  }
+}

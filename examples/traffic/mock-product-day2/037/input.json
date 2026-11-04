@@ -1,0 +1,16 @@
+{
+  "sequence": 37,
+  "arrival_minute": 110,
+  "operator": "运营A",
+  "intent": "repeat",
+  "request": {
+    "request_id": "operator-followup-028",
+    "material_ids": [
+      "U008"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T11:00+08:00",
+    "hard_time": false
+  },
+  "service_fault": null
+}

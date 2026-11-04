@@ -94,3 +94,7 @@ python scripts/evaluate.py
 ## 补齐真实模型验证
 
 第一轮已完成并保留，后续优先运行失败项重跑，避免覆盖`examples/runs/live/`。核查normal、missing、risk、conflict、duplicate、save_failure的实际动作和反馈；模型可有不同顺序，不能仅靠结果文本一致判断正确。自动报告中的`real_model_decision_quality_verified=false`为默认边界标记，原文件不改写；AI逐项复核另存[review.json](../examples/runs/live/review.json)，并不代表生产级安全保证或候选人独立人工签字。后续实际结果须另行引用并说明源码版本与限制。
+
+## 新增连续流量结果
+
+[完整连续需求评估](08-product-traffic.md)：两天96条，离线业务目标完成22条、边界检查96条；当前57个回归测试通过。历史真实结果保留，新增真实流量待运行。

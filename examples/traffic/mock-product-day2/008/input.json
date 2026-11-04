@@ -1,0 +1,22 @@
+{
+  "sequence": 8,
+  "arrival_minute": 22,
+  "operator": "运营C",
+  "intent": "repeat",
+  "request": {
+    "request_id": "operator-004",
+    "material_ids": [
+      "U004"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T18:00+08:00",
+    "hard_time": true
+  },
+  "service_fault": null,
+  "external_booking": {
+    "id": "late-booking-7",
+    "channel": "douyin",
+    "start": "2026-11-05T18:00+08:00",
+    "end": "2026-11-05T19:00+08:00"
+  }
+}

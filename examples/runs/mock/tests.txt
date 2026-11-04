@@ -37,8 +37,11 @@ test_missing_key_and_unsafe_urls_rejected (test_agent.ModelAdapterTests.test_mis
 test_missing_provider_call_id_or_null_message_is_safe_error (test_agent.ModelAdapterTests.test_missing_provider_call_id_or_null_message_is_safe_error) ... ok
 test_multiple_tool_calls_rejected (test_agent.ModelAdapterTests.test_multiple_tool_calls_rejected) ... ok
 test_real_adapter_sends_observations_and_replays_provider_call_id (test_agent.ModelAdapterTests.test_real_adapter_sends_observations_and_replays_provider_call_id) ... ok
+test_hidden_input_configures_live_and_restores_environment (test_connection_helper.ConnectionHelperTests.test_hidden_input_configures_live_and_restores_environment) ... ok
+test_invalid_inputs_never_call_model_or_echo_input (test_connection_helper.ConnectionHelperTests.test_invalid_inputs_never_call_model_or_echo_input) ... ok
+test_runner_error_still_removes_temporary_key (test_connection_helper.ConnectionHelperTests.test_runner_error_still_removes_temporary_key) ... ok
 
 ----------------------------------------------------------------------
-Ran 39 tests in 4.214s
+Ran 42 tests in 4.288s
 
 OK

@@ -22,4 +22,4 @@ Mock results verify workflow and boundaries only; real model decisions remain un
 
 Passed: 13/13
 
-Source SHA-256: `bfa3f5ec45751a5c7130b57ad6c5489d90235add86b62db5ea753454f71f7851`
+Source SHA-256: `a4f01a478b31a85d8a796040a680698b096c43928276c51c5d4fc11b5767c924`

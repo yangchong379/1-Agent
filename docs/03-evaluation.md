@@ -9,7 +9,7 @@ python -m unittest discover -s tests -v
 python scripts/evaluate.py
 ```
 
-**实际结果：39 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
+**实际结果：42 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
 
 **真实模型：未运行。** 用户提供官方平台链接后，已核对 Base URL 为 `https://api.deepseek.com`、DeepSeek V4.1 Flash 的 API model 为 `deepseek-flash`；本机密钥尚未配置，因此无法证明真实模型在不同观察下能调整动作。不提交准确率、模型效果分数或“已满足真实 ReAct 验收”的结论。型号依据见[官方模型列表](https://api-docs.deepseek.com/quick_start/pricing/)。
 

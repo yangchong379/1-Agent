@@ -25,7 +25,7 @@ flowchart TD
 
 `--model mock`：确定性的观察驱动策略，检查上一轮真实工具结果再返回动作。补查为空会结束，补查成功会重新审核；时段变化会选不同时间；保存失败最多再试一次。这证明工具契约和状态闭环可以运行，**不证明真实模型 ReAct 决策合格**。结构化测试结果和文档始终保留该边界。
 
-接口依据于 2026-11-04 核对的 [OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/) 和 [DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。未启用 DeepSeek beta strict；应用始终自行校验工具参数。未假定“DeepSeek 4.1”就是某个 API 模型 ID。
+接口依据于 2026-11-04 核对的 [OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/) 和 [DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。未启用 DeepSeek beta strict；应用始终自行校验工具参数。用户提供官方平台链接后，按[官方型号映射](https://api-docs.deepseek.com/quick_start/pricing/)将示例配置为 `deepseek-flash`（DeepSeek-V4.1-Flash-1017），没有把展示名直接用作 API model。
 
 ## 工具契约
 

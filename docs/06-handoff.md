@@ -11,7 +11,7 @@ API 是程序调用模型的入口；网页聊天权限不一定包含 API 权�
 | API Key | 你账号调用接口的密钥 | 平台的密钥管理页；不发给聊天，不提交Git |
 | MODEL_API_KEY | 本项目选择的环境变量名字，用于在本机存放 API Key | 由项目规定，不需要从平台找 |
 
-提供平台名称或公开接入文档链接，就能继续核对前两个字段。不要发送密钥，也不要把后台含密钥的截图放入仓库。项目没有自动扫描电脑寻找密钥。
+用户已提供 [DeepSeek 官方密钥管理页](https://platform.deepseek.com/api_keys)。2026-11-04 核对[官方首次调用说明](https://api-docs.deepseek.com/)和[模型列表](https://api-docs.deepseek.com/quick_start/pricing/)，本项目可按以下配置接入 V4.1 Flash：`MODEL_BASE_URL=https://api.deepseek.com`、`MODEL_NAME=deepseek-flash`。本机仍需设置 `MODEL_API_KEY`。官方管理页需用户自行登录；助手未访问账户中的密钥、余额或权限。不要发送密钥，也不要把后台含密钥的截图放入仓库。项目没有自动扫描电脑寻找密钥。
 
 README 给出当前终端安全读取密钥的 PowerShell 命令。环境变量只影响当前终端及其子进程；在其它终端运行时需要重新配置。程序不会自动读取 `.env`，不要以为复制 `.env.example` 就已完成接入。
 

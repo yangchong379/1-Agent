@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前交付状态：离线工程验证已完成；真实模型接入代码已实现，但尚无可用接口配置，真实模型决策效果未验证。GitHub 仓库尚未创建/推送。** 不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；提交前须执行真实模型验证并审核记录。
+**当前交付状态：离线工程验证已完成；DeepSeek 官方地址及模型编号已核对，本机尚未配置密钥，真实模型决策效果未验证。GitHub 仓库尚未创建/推送。** 不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；提交前须执行真实模型验证并审核记录。
 
 ## 评审入口
 
@@ -71,17 +71,17 @@ python scripts/run.py --input examples/inputs/normal.json --db .runtime/failure.
 
 ## 真实模型运行
 
-适配实现使用 Chat Completions function calling，可配置 DeepSeek 或提供该协议的服务。用户提及的“DeepSeek 4.1”尚未核实其提供方及准确模型 ID，程序不猜测、不替换该模型。协议依据：[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)、[OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)。
+适配实现使用 Chat Completions function calling，可配置 DeepSeek 或提供该协议的服务。用户已提供 DeepSeek 官方平台链接；2026-11-04 核对官方文档，`deepseek-flash` 对应 DeepSeek-V4.1-Flash-1017，根地址为 `https://api.deepseek.com`。此处是官方型号映射，并非远端调用成功记录。依据：[DeepSeek 首次调用](https://api-docs.deepseek.com/)、[模型列表](https://api-docs.deepseek.com/quick_start/pricing/)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)。
 
 PowerShell 安全配置示例：
 
 ```powershell
-$env:MODEL_BASE_URL = 'https://你的服务商提供的接口根地址/v1'
-$env:MODEL_NAME = '服务商要求的准确模型ID'
+$env:MODEL_BASE_URL = 'https://api.deepseek.com'
+$env:MODEL_NAME = 'deepseek-flash'
 $modelSecret = Read-Host 'API Key（仅保存在当前进程环境）' -AsSecureString
 $env:MODEL_API_KEY = [System.Net.NetworkCredential]::new('', $modelSecret).Password
-# 可选：服务商支持 DeepSeek thinking 参数时可禁用思考以减少输出预算
-# $env:MODEL_THINKING = 'disabled'
+# 官方 DeepSeek 支持该参数；先以非思考模式验证工具循环
+$env:MODEL_THINKING = 'disabled'
 py -3.11 scripts/run.py --model live --input examples/inputs/conflict.json --db .runtime/live-conflict.sqlite --output examples/runs/live-conflict.json
 # 完整真实模型评估会进行多次付费模型调用；仅在确认配置后由你执行
 py -3.11 scripts/evaluate.py --model live --output examples/runs/live

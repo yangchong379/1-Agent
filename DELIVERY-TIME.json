@@ -4,5 +4,10 @@
   "delivery_preparation_cutoff": "2026-11-04T14:11:12.066702+08:00",
   "elapsed_wall_clock_minutes": 17.85,
   "scope": "AI implementation and dialogue until delivery preparation cutoff; not candidate independent work",
-  "candidate_independent_time": "not recorded"
+  "candidate_independent_time": "not recorded",
+  "continued_delivery_completed_at": "2026-11-04T17:06:24.357275+08:00",
+  "elapsed_wall_clock_minutes_including_followups": 193.06,
+  "time_boundary": "Includes all dialogue, waiting for user input, live API calls and delivery work; not candidate independent development time",
+  "recorded_live_full_evaluation_seconds": 988.813,
+  "recorded_failed_case_retry_seconds": 425.734
 }

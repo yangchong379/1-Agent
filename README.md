@@ -4,6 +4,10 @@
 
 **当前验证状态：55个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 评估8/13通过，修复后五个失败项重跑5/5通过。** 首轮失败和重跑均保留，[累计13场景证据及复核](examples/runs/LIVE-REVIEW.md)覆盖全部验收点，但这是跨版本累计记录，不是当前版本单次全量13/13或稳定成功率。另已修正保存后重读导致审核状态显示为unchecked的问题，并以实际路径做离线回归；该展示修正未新增模型调用。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明。
 
+## 个人贡献与AI协作
+
+候选人承担需求与验收推进、关键业务边界核对、Windows本机模型接入、真实评估执行、失败反馈和修复后复测，并创建目标仓库、完成登录授权。AI协助完成代码与测试实现、源码级问题定位、材料整理和Git推送。具体职责及对应证据见[个人贡献说明](docs/07-personal-contributions.md)与[AI使用记录](docs/04-ai-usage.md)。
+
 ## 评审入口
 
 | 材料 | 入口 |
@@ -18,6 +22,7 @@
 | 模型循环、确认边界和幂等设计 | [docs/02-solution.md](docs/02-solution.md) |
 | 效果评估与未验证范围 | [docs/03-evaluation.md](docs/03-evaluation.md) |
 | AI 使用及个人贡献说明 | [docs/04-ai-usage.md](docs/04-ai-usage.md) |
+| 个人职责、验证操作与产物对照 | [docs/07-personal-contributions.md](docs/07-personal-contributions.md) |
 | 复盘及实际用时 | [docs/05-retrospective.md](docs/05-retrospective.md) |
 | 模型配置与 GitHub 提交流程 | [docs/06-handoff.md](docs/06-handoff.md) |
 

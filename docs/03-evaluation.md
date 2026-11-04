@@ -49,7 +49,7 @@ python scripts/evaluate.py
 
 [test_agent.py](../tests/test_agent.py) 覆盖两个连接并发去重、不同素材并发抢同一时段、半开区间边界、保存时重新核查、用户批准精确范围、批准更新失败回滚、旧请求不能降级已确认状态、越权工具/伪造确认参数拒绝、未经审核或查询不能保存、未知素材、输入类型及时区校验、请求 ID 复用冲突、CLI 各退出码、模型协议错误及认证错误脱敏。
 
-真实适配器单元测试使用伪造 HTTP 响应，验证了原 tool-call ID、tool observation 和思考字段内存回传，不是远端接口实测，不能当作真实模型成功记录。GitHub Actions 配置已提供，但尚未推送，因此**未声称云端 CI 已通过**。
+真实适配器单元测试使用伪造 HTTP 响应，验证了原 tool-call ID、tool observation 和思考字段内存回传，不是远端接口实测，不能当作真实模型成功记录。GitHub Actions 配置已随项目上传，云端执行状态以[仓库 Actions 页面](https://github.com/yangchong379/1-Agent/actions)为准；本地测试结果不等同于云端 CI 结果。
 
 ## 失败与已知限制
 

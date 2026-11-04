@@ -1,0 +1,502 @@
+{
+  "mode": "live_model",
+  "seed": 20261104,
+  "arrivals": 24,
+  "generated_at_utc": "2026-11-04T17:16:24.684572+00:00",
+  "duration_seconds": 2102.64,
+  "runtime_src_sha256": "757ad580e1e75441739197b4712a73b49208344bc5a770388b2e1592f13c1a23",
+  "harness_sha256": "3cde3d7ffc46c15358f37811ab637a3b86d7161acbcd682631a054b4bf35f42d",
+  "invariants_passed": 24,
+  "goals_met": 9,
+  "status_counts": {
+    "blocked": 3,
+    "save_failed": 1,
+    "draft_ready": 12,
+    "needs_confirmation": 2,
+    "incomplete_step_limit": 3,
+    "awaiting_confirmation": 7,
+    "needs_info": 1,
+    "request_rejected": 1
+  },
+  "records": [
+    {
+      "sequence": 1,
+      "statuses": [
+        "blocked",
+        "save_failed"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "001/result.json"
+    },
+    {
+      "sequence": 2,
+      "statuses": [
+        "draft_ready",
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "002/result.json"
+    },
+    {
+      "sequence": 3,
+      "statuses": [
+        "needs_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "003/result.json"
+    },
+    {
+      "sequence": 4,
+      "statuses": [
+        "draft_ready",
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "004/result.json"
+    },
+    {
+      "sequence": 5,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "005/result.json"
+    },
+    {
+      "sequence": 6,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "006/result.json"
+    },
+    {
+      "sequence": 7,
+      "statuses": [
+        "incomplete_step_limit",
+        "incomplete_step_limit"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "007/result.json"
+    },
+    {
+      "sequence": 8,
+      "statuses": [
+        "blocked"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "008/result.json"
+    },
+    {
+      "sequence": 9,
+      "statuses": [
+        "draft_ready",
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "009/result.json"
+    },
+    {
+      "sequence": 10,
+      "statuses": [
+        "needs_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "010/result.json"
+    },
+    {
+      "sequence": 11,
+      "statuses": [
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "011/result.json"
+    },
+    {
+      "sequence": 12,
+      "statuses": [
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "012/result.json"
+    },
+    {
+      "sequence": 13,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "013/result.json"
+    },
+    {
+      "sequence": 14,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "014/result.json"
+    },
+    {
+      "sequence": 15,
+      "statuses": [
+        "needs_info"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "015/result.json"
+    },
+    {
+      "sequence": 16,
+      "statuses": [
+        "awaiting_confirmation",
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "016/result.json"
+    },
+    {
+      "sequence": 17,
+      "statuses": [
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "017/result.json"
+    },
+    {
+      "sequence": 18,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "018/result.json"
+    },
+    {
+      "sequence": 19,
+      "statuses": [
+        "incomplete_step_limit"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "019/result.json"
+    },
+    {
+      "sequence": 20,
+      "statuses": [
+        "awaiting_confirmation"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "020/result.json"
+    },
+    {
+      "sequence": 21,
+      "statuses": [
+        "request_rejected"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "rejection_did_not_mutate_state": true
+      },
+      "invariants_passed": true,
+      "result": "021/result.json"
+    },
+    {
+      "sequence": 22,
+      "statuses": [
+        "blocked"
+      ],
+      "business_goal_met": false,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "022/result.json"
+    },
+    {
+      "sequence": 23,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "023/result.json"
+    },
+    {
+      "sequence": 24,
+      "statuses": [
+        "draft_ready"
+      ],
+      "business_goal_met": true,
+      "checks": {
+        "bounded": true,
+        "draft_only": true,
+        "hard_requirements_retained": true,
+        "save_receipts_real": true,
+        "confirmation_authority": true,
+        "saved_slot_currently_free": true,
+        "saved_review_approved": true,
+        "unique_material_channel": true,
+        "unchanged_unrelated_drafts": true
+      },
+      "invariants_passed": true,
+      "result": "024/result.json"
+    }
+  ],
+  "boundary": "Synthetic serial event replay with shared database, not production traffic, concurrency benchmark or model reliability estimate. Mock is workflow-only. Arrival intents and faults frozen before running; synthetic operator follow-ups may approve only actual prior proposals. No expected ideal action path."
+}

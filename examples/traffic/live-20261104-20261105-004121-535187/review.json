@@ -1,0 +1,286 @@
+{
+  "reviewer": "Codex AI audit of actual local outputs; not independent human sign-off",
+  "reviewed_at_utc": "2026-11-04T17:18:07.403421+00:00",
+  "metrics": {
+    "arrivals": 24,
+    "business_goals_met": 9,
+    "invariants_passed": 24,
+    "status_counts": {
+      "blocked": 3,
+      "save_failed": 1,
+      "draft_ready": 12,
+      "needs_confirmation": 2,
+      "incomplete_step_limit": 3,
+      "awaiting_confirmation": 7,
+      "needs_info": 1,
+      "request_rejected": 1
+    },
+    "execution_unfinished_requests": 2,
+    "input_rejected_requests": 1,
+    "explicitly_handled_or_deferred_requests": 21
+  },
+  "checks": {
+    "source_fingerprint_matches_current": true,
+    "shared_state_chain": true,
+    "saved_claims_match": true,
+    "model_calls_bounded": true,
+    "raw_output_count_matches": true,
+    "frozen_demand_prefix_matches_offline": true
+  },
+  "issues": [],
+  "records": [
+    {
+      "arrival": 1,
+      "status": [
+        "blocked",
+        "save_failed"
+      ]
+    },
+    {
+      "arrival": 2,
+      "status": [
+        "draft_ready",
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 3,
+      "status": [
+        "needs_confirmation"
+      ]
+    },
+    {
+      "arrival": 4,
+      "status": [
+        "draft_ready",
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 5,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 6,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 7,
+      "status": [
+        "incomplete_step_limit",
+        "incomplete_step_limit"
+      ]
+    },
+    {
+      "arrival": 8,
+      "status": [
+        "blocked"
+      ]
+    },
+    {
+      "arrival": 9,
+      "status": [
+        "draft_ready",
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 10,
+      "status": [
+        "needs_confirmation"
+      ]
+    },
+    {
+      "arrival": 11,
+      "status": [
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 12,
+      "status": [
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 13,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 14,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 15,
+      "status": [
+        "needs_info"
+      ]
+    },
+    {
+      "arrival": 16,
+      "status": [
+        "awaiting_confirmation",
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 17,
+      "status": [
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 18,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 19,
+      "status": [
+        "incomplete_step_limit"
+      ]
+    },
+    {
+      "arrival": 20,
+      "status": [
+        "awaiting_confirmation"
+      ]
+    },
+    {
+      "arrival": 21,
+      "status": [
+        "request_rejected"
+      ]
+    },
+    {
+      "arrival": 22,
+      "status": [
+        "blocked"
+      ]
+    },
+    {
+      "arrival": 23,
+      "status": [
+        "draft_ready"
+      ]
+    },
+    {
+      "arrival": 24,
+      "status": [
+        "draft_ready"
+      ]
+    }
+  ],
+  "files_sha256": {
+    "dataset.json": "15da119fac78fffe1673e0a5d7cfd8f6b8cca58c9731fbdf8c11f268234323b1",
+    "demand-stream.json": "c9d15fe27b53cb9bf9c2fed318c65493f1d6434f8cbf2920a31f314c4b341596",
+    "progress.json": "1ec18fe4c470b2aa64548c08b5d23b33dd74ee323ea66241434eb188d337f92a",
+    "summary.json": "297130f81eac6dd62083ea0c88da58b1b6ed83dbda0054ce09a9c38e079c3412",
+    "001/input.json": "58da20b4771285e376ea59c4bee55fb743f8e4f9937fb7603faa47c0242a5d38",
+    "001/result.json": "416a0b8c3efb306738510edd42dd3d8d00a0b827718082d21dd1dd430ccc456e",
+    "001/state-after.json": "c767652df10a838a6742e8d09de905e2f50e5f8c83776735b96808d58e91d8e8",
+    "001/state-before.json": "b07d48995b1e52642dc6510ccff084a5d638692f29315136d5ff05c7a240e514",
+    "002/input.json": "3d2a099caba46e3e864157bd7051fa4fec920eea385751e73c3ff7e9091b7fe0",
+    "002/result.json": "a0e52305aa42695f5c226b50ea5110d2ed9da3bb4c877945d5dccdde2ae52af0",
+    "002/state-after.json": "d2107953f5a26aebbfc7f3dd8f1f27c11e310baa97cfcc5be80b109c8ab66c92",
+    "002/state-before.json": "c767652df10a838a6742e8d09de905e2f50e5f8c83776735b96808d58e91d8e8",
+    "003/input.json": "b3c1316dfeb045832a4039f1d3a2bbf398b9a37eee1564b48eeec25e6d8c4742",
+    "003/result.json": "b119c6d7c6e44049792f4db68c797eccc7b93b22fad3fe4b5e8d0db3b30fa7fd",
+    "003/state-after.json": "85fa261b10f9381411708b838583851b1756ba19bf96d793465d90c6e0b8ec75",
+    "003/state-before.json": "d2107953f5a26aebbfc7f3dd8f1f27c11e310baa97cfcc5be80b109c8ab66c92",
+    "004/input.json": "d5bb54b1b750db0f0616041e13c1e35bd35c627fddee585312e14b1f0507f614",
+    "004/result.json": "21325f2c568dc9244ab0435ede6652cdca629bb40bbc5f546ffc8ca1a080249f",
+    "004/state-after.json": "85fa261b10f9381411708b838583851b1756ba19bf96d793465d90c6e0b8ec75",
+    "004/state-before.json": "85fa261b10f9381411708b838583851b1756ba19bf96d793465d90c6e0b8ec75",
+    "005/input.json": "2ff31e21ebb39e2f6f46f6cea85bd0bc796db14709b280a7557a5e6a7f25d399",
+    "005/result.json": "30e6a3a0d7fcfecedee283899cc8872ae6f86b6dd549d1bf0e6c03cb7e8590a3",
+    "005/state-after.json": "10c9822557ceb8bdba87adbb654aecbc5b3cec7040029705bd6b9c1b2a25a760",
+    "005/state-before.json": "85fa261b10f9381411708b838583851b1756ba19bf96d793465d90c6e0b8ec75",
+    "006/input.json": "54c4be4cf461dbf12fa1ce98753877e233a4b8494b3ef0de789329a63aae89ae",
+    "006/result.json": "c17042371600fd8d11f5bcb50ae4d3cec1ab6c18bf504e5955442f52cdcb5ffa",
+    "006/state-after.json": "f6a3951a323bde7888079548c45b00d93f779e3eea8c151955fcc4762e3f334c",
+    "006/state-before.json": "10c9822557ceb8bdba87adbb654aecbc5b3cec7040029705bd6b9c1b2a25a760",
+    "007/input.json": "633e37f506543f391b3abeb75235a749e6c2a4179f63c37784732c0c5ecb92c4",
+    "007/result.json": "7a78e097907111033726a21d644626151213c365cd1bb08ed0afb939c23775b9",
+    "007/state-after.json": "4f6d92d2c40d1719155068cbfe0c89d26a522a56d7dbf0a5fade63c8ee0acdd8",
+    "007/state-before.json": "f6a3951a323bde7888079548c45b00d93f779e3eea8c151955fcc4762e3f334c",
+    "008/input.json": "3f3be9feef7ed6221a2aacdbc61c62d4bb5b7d84f5735c40c20831050ec20f96",
+    "008/result.json": "9cc725a83ce77c58d260741a6076928abf2b206828a95bd4aa3cf3f482bdf49a",
+    "008/state-after.json": "a931259063117352c8896ca29e83b017b3aed53192b88b832a3d81c33192cdbd",
+    "008/state-before.json": "121ea112c7c8cc0f31fd61389d1ed99c10f47d478c8ebe64b2a71e526d7fcfdf",
+    "009/input.json": "1cee05c6682f32126523481c69dc1e91693105b9a819e4337c62f368bb0331fb",
+    "009/result.json": "863abf1d551d0e4617122f4832c0cd76ef754d86f52a7e2d68b0c70324deee7e",
+    "009/state-after.json": "39ba46b6ee773d673a31d5d184b91df5927ad057aa2b3beb315041ee23a1499f",
+    "009/state-before.json": "a931259063117352c8896ca29e83b017b3aed53192b88b832a3d81c33192cdbd",
+    "010/input.json": "0fe02f8c15139371f6c0adae322c161b09c1b3ac50f34c6ca8c56b2364bf35f4",
+    "010/result.json": "8e3f149d28cfdc5444a36a6c917f194e8d176101cdac4db5db9d75b137f8edc9",
+    "010/state-after.json": "d0acd12b9e70d4f9fc9a36b1dd1802aaae6ef0c22a9bf35d3d678803e748330b",
+    "010/state-before.json": "39ba46b6ee773d673a31d5d184b91df5927ad057aa2b3beb315041ee23a1499f",
+    "011/input.json": "4a901e460460b3dab2daf2f748106947e1dd5e7da6671f27b516579dfd9f0840",
+    "011/result.json": "831d2f933f23d5714dad37b69235a6bd1d3e81ed5e6973db9f5e07e0f09336c1",
+    "011/state-after.json": "90a0262c2d354d0e39c829f1a808c1e78738815faf60356c6bd9d927430c858d",
+    "011/state-before.json": "d0acd12b9e70d4f9fc9a36b1dd1802aaae6ef0c22a9bf35d3d678803e748330b",
+    "012/input.json": "e33a2fa9ad0ce1acbafcefd549303957300d469a0910770e589e0a4ef8100172",
+    "012/result.json": "ba919bdd6c5bbff2fd71bae89dace49e22f753c5967a3adcdf6dc3b8609dac26",
+    "012/state-after.json": "bbedb9c7e98f638dd3450250bda2d67cb2f8133924d0eae3a48e4ee9b8bc7501",
+    "012/state-before.json": "90a0262c2d354d0e39c829f1a808c1e78738815faf60356c6bd9d927430c858d",
+    "013/input.json": "507c60d44a61412b74fb94dafed009a679563a891fcd29707da5e3b892bd57a1",
+    "013/result.json": "082c2dbf33d788060710a60b07a4ece9a9da76ee55c2fe509465dcac23c49014",
+    "013/state-after.json": "c5eb0c14f64e5a0042b945917b0ff56a783ee4f9377333dd77786e5c11656262",
+    "013/state-before.json": "bbedb9c7e98f638dd3450250bda2d67cb2f8133924d0eae3a48e4ee9b8bc7501",
+    "014/input.json": "2f5638beb32f05e4776c3ec5731df273dd40c254947a5e769a26f16942a86385",
+    "014/result.json": "ea3942138f8926bf3164110123ac75a6e5fd1f7e74deff59f4a1132d085bcf9b",
+    "014/state-after.json": "e19fd5ae4be32db7fb8a56f4d77a9d80a12f47774c37cd2f93f92628085accfa",
+    "014/state-before.json": "c5eb0c14f64e5a0042b945917b0ff56a783ee4f9377333dd77786e5c11656262",
+    "015/input.json": "4d788f70a5ca0d6efc78707f30a3f2247e3da4761ff4091e521e1f5285a72a20",
+    "015/result.json": "ce7c7e1c721efe83f51b622016a5f5299d2c925f0edc5b8a25b1e7adf3b4a355",
+    "015/state-after.json": "8c16576d63936e19c32f6b40e426aca70254f86ce618db0c888e77227a981b40",
+    "015/state-before.json": "e19fd5ae4be32db7fb8a56f4d77a9d80a12f47774c37cd2f93f92628085accfa",
+    "016/input.json": "cecacbe62e4650067e183723dadbb13669aa59b6a3985578c8b0b3621fbe0289",
+    "016/result.json": "c13a9b966c0029ec01f3c71364e9c8d6f17b4ce8f7dd68438977b2c802b204e6",
+    "016/state-after.json": "307c32b82a2c6e761e6e6034f19ca7d6f405c3fd8cb4b3912ab38a769aee40a6",
+    "016/state-before.json": "8c16576d63936e19c32f6b40e426aca70254f86ce618db0c888e77227a981b40",
+    "017/input.json": "b39b7e3d18f84ccd1e45391fc5cb84fd5647d432a9dc74283e70bac0cd060fc2",
+    "017/result.json": "9ac7f39a2fd8eac09171ac5f19010be292e28f471f98a5814facae754da0cf57",
+    "017/state-after.json": "0e32564e9c0fa81c6a7149134e884dd962a8b564dfebaf99bde412ce162013e9",
+    "017/state-before.json": "ba610072d7f3b9fd8bb192a447866a92b849503c98c653b85d287dd9d012f6c6",
+    "018/input.json": "e3ee3aee9b376fd2f05f18dada5bd58f98a6190143d4164e6062ab60e27c976f",
+    "018/result.json": "12c68cc4d90114db77d535fdd9d31e7141afe718dac57f0b503bbf2ced255c69",
+    "018/state-after.json": "5ec313e455aad0ed0b36fecc89032cbe968e1ca0e9dd3a7e5783b14e86a43280",
+    "018/state-before.json": "0e32564e9c0fa81c6a7149134e884dd962a8b564dfebaf99bde412ce162013e9",
+    "019/input.json": "311cc750bbcfe7e6f86f6d1dcd194b26215cc9ecf0f960eae20fc39d4ab81e93",
+    "019/result.json": "54047c9439fbbd82b027bd2798b20b9aa3aa14521a14de802ab9a8705735ce9e",
+    "019/state-after.json": "5ec313e455aad0ed0b36fecc89032cbe968e1ca0e9dd3a7e5783b14e86a43280",
+    "019/state-before.json": "5ec313e455aad0ed0b36fecc89032cbe968e1ca0e9dd3a7e5783b14e86a43280",
+    "020/input.json": "c7e5b833a9576b9bbad0479d88f7c6b85c3214635c18324106516d5e63d8671e",
+    "020/result.json": "a39890bb942f227bf2b00f4e22bd7a5e6cb24936f371d85968effa7bf0999e90",
+    "020/state-after.json": "35ca38c4c786d73847c765d877b8f28975e851a402172fcaaf9796df510fc616",
+    "020/state-before.json": "5ec313e455aad0ed0b36fecc89032cbe968e1ca0e9dd3a7e5783b14e86a43280",
+    "021/input.json": "ee5a1099fbf3aef7f627efdc944c555f502048328bfb37344eae459b19e3e410",
+    "021/result.json": "d24c1d881aab102db0427b2f536f8ee6a6bfcd1781e1b05fac87c0ce86089bcc",
+    "021/state-after.json": "35ca38c4c786d73847c765d877b8f28975e851a402172fcaaf9796df510fc616",
+    "021/state-before.json": "35ca38c4c786d73847c765d877b8f28975e851a402172fcaaf9796df510fc616",
+    "022/input.json": "27a3188d90e38d907312b4672130472f8160bc843c8e6f598e1169e80a9439e4",
+    "022/result.json": "2c5e90b57b473cd0ec2ac19c842e6a812c13de42ea8761aafef4f871d7553944",
+    "022/state-after.json": "7f949c24f4e977f468fa99378a39b035fcc7cb32146ad1f732d0f5ada8332ea0",
+    "022/state-before.json": "35ca38c4c786d73847c765d877b8f28975e851a402172fcaaf9796df510fc616",
+    "023/input.json": "9ada9ced0aff5a9194e5a54580cfc796a7fcd460df886d9a28c39e9a0a5fac98",
+    "023/result.json": "92d2f8ca74b4c879ec6d98a01bf3ee5035d916c7e445b85f63e1b1afdc88acc4",
+    "023/state-after.json": "84277ad3abe6c2089a2717cb7dbebea8f40e4656b0e81c06327f4eb417d09897",
+    "023/state-before.json": "7f949c24f4e977f468fa99378a39b035fcc7cb32146ad1f732d0f5ada8332ea0",
+    "024/input.json": "7c786857f854a8922e837d79b810c12ac06b1577beedb0972504ab5142bdbf49",
+    "024/result.json": "3b678cc3fd644612cc0b1ae4876a66618024ab2aef254f1bc5e1f24e3d38fc38",
+    "024/state-after.json": "84277ad3abe6c2089a2717cb7dbebea8f40e4656b0e81c06327f4eb417d09897",
+    "024/state-before.json": "84277ad3abe6c2089a2717cb7dbebea8f40e4656b0e81c06327f4eb417d09897"
+  },
+  "scope": "Actual remote model with synthetic tools/data; not production reliability proof."
+}

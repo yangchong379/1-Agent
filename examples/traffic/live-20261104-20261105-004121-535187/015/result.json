@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "mode": "live_model",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "operator-014",
+    "material_ids": [
+      "U014"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T19:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T17:02:19.406667+00:00",
+  "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+  "max_steps": 40,
+  "model_calls": 4,
+  "tool_calls": 4,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "U014",
+      "status": "needs_info",
+      "review_status": "needs_info",
+      "review_basis": "latest_rule_check",
+      "risk_reasons": [],
+      "missing_fields": [
+        "copyright"
+      ],
+      "requested_slot": "2026-11-05T19:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "补充 copyright"
+      ],
+      "draft_save_status": "not_attempted",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": null,
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "U014",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "Start by reading material U014 metadata and existing draft."
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "U014",
+          "title": "秋日风景",
+          "description": "待补版权凭证的原创短片",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "supplement_metadata"
+    },
+    {
+      "step": 2,
+      "material_id": "U014",
+      "action": {
+        "tool": "supplement_metadata",
+        "arguments": {},
+        "rationale": "Description indicates copyright proof is pending; check supplementary records for it."
+      },
+      "observation": {
+        "ok": true,
+        "found": {},
+        "source": "synthetic_supplements",
+        "review_required": true,
+        "note": "Run check_rules again after this lookup, even when found is empty."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 3,
+      "material_id": "U014",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "No supplementary records found; run rule check before scheduling."
+      },
+      "observation": {
+        "ok": true,
+        "status": "needs_info",
+        "missing_fields": [
+          "copyright"
+        ],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "material_id": "U014",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "Copyright credential is missing and not recoverable from supplemental records, so saving is blocked."
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "needs_info"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "Live model tool decisions; synthetic business data; draft only"
+}

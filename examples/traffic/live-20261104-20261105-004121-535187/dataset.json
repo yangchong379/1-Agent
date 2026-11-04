@@ -1,0 +1,1763 @@
+{
+  "description": "全部为合成素材，不含真实个人信息；固定日期用于可重复评估，并非实际发布日。",
+  "rules": {
+    "version": "synthetic-v1",
+    "required_fields": [
+      "title",
+      "description",
+      "copyright",
+      "contains_private_data"
+    ],
+    "blocked_phrases": [
+      "保证收益",
+      "百分百治愈"
+    ],
+    "duration_minutes": 60
+  },
+  "materials": {
+    "M01": {
+      "id": "M01",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "M02": {
+      "id": "M02",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "M03": {
+      "id": "M03",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "M04": {
+      "id": "M04",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "M05": {
+      "id": "M05",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "M06": {
+      "id": "M06",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U000": {
+      "id": "U000",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U001": {
+      "id": "U001",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U002": {
+      "id": "U002",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U003": {
+      "id": "U003",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U004": {
+      "id": "U004",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U005": {
+      "id": "U005",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U006": {
+      "id": "U006",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U007": {
+      "id": "U007",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U008": {
+      "id": "U008",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U009": {
+      "id": "U009",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U010": {
+      "id": "U010",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U011": {
+      "id": "U011",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U012": {
+      "id": "U012",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U013": {
+      "id": "U013",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U014": {
+      "id": "U014",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U015": {
+      "id": "U015",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U016": {
+      "id": "U016",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U017": {
+      "id": "U017",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U018": {
+      "id": "U018",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U019": {
+      "id": "U019",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U020": {
+      "id": "U020",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U021": {
+      "id": "U021",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U022": {
+      "id": "U022",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U023": {
+      "id": "U023",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U024": {
+      "id": "U024",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U025": {
+      "id": "U025",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U026": {
+      "id": "U026",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U027": {
+      "id": "U027",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U028": {
+      "id": "U028",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U029": {
+      "id": "U029",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U030": {
+      "id": "U030",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U031": {
+      "id": "U031",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U032": {
+      "id": "U032",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U033": {
+      "id": "U033",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U034": {
+      "id": "U034",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U035": {
+      "id": "U035",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U036": {
+      "id": "U036",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U037": {
+      "id": "U037",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U038": {
+      "id": "U038",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U039": {
+      "id": "U039",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U040": {
+      "id": "U040",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U041": {
+      "id": "U041",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U042": {
+      "id": "U042",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U043": {
+      "id": "U043",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U044": {
+      "id": "U044",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U045": {
+      "id": "U045",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U046": {
+      "id": "U046",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U047": {
+      "id": "U047",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U048": {
+      "id": "U048",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U049": {
+      "id": "U049",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U050": {
+      "id": "U050",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U051": {
+      "id": "U051",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U052": {
+      "id": "U052",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U053": {
+      "id": "U053",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U054": {
+      "id": "U054",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U055": {
+      "id": "U055",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U056": {
+      "id": "U056",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U057": {
+      "id": "U057",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U058": {
+      "id": "U058",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U059": {
+      "id": "U059",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U060": {
+      "id": "U060",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U061": {
+      "id": "U061",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U062": {
+      "id": "U062",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U063": {
+      "id": "U063",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U064": {
+      "id": "U064",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U065": {
+      "id": "U065",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U066": {
+      "id": "U066",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U067": {
+      "id": "U067",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U068": {
+      "id": "U068",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U069": {
+      "id": "U069",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U070": {
+      "id": "U070",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U071": {
+      "id": "U071",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U072": {
+      "id": "U072",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U073": {
+      "id": "U073",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U074": {
+      "id": "U074",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U075": {
+      "id": "U075",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U076": {
+      "id": "U076",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U077": {
+      "id": "U077",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U078": {
+      "id": "U078",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U079": {
+      "id": "U079",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U080": {
+      "id": "U080",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U081": {
+      "id": "U081",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U082": {
+      "id": "U082",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U083": {
+      "id": "U083",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U084": {
+      "id": "U084",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U085": {
+      "id": "U085",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U086": {
+      "id": "U086",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U087": {
+      "id": "U087",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U088": {
+      "id": "U088",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U089": {
+      "id": "U089",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U090": {
+      "id": "U090",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U091": {
+      "id": "U091",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U092": {
+      "id": "U092",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U093": {
+      "id": "U093",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U094": {
+      "id": "U094",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U095": {
+      "id": "U095",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U096": {
+      "id": "U096",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U097": {
+      "id": "U097",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U098": {
+      "id": "U098",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U099": {
+      "id": "U099",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U100": {
+      "id": "U100",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U101": {
+      "id": "U101",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U102": {
+      "id": "U102",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U103": {
+      "id": "U103",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U104": {
+      "id": "U104",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U105": {
+      "id": "U105",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U106": {
+      "id": "U106",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U107": {
+      "id": "U107",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U108": {
+      "id": "U108",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U109": {
+      "id": "U109",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U110": {
+      "id": "U110",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U111": {
+      "id": "U111",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U112": {
+      "id": "U112",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U113": {
+      "id": "U113",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U114": {
+      "id": "U114",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U115": {
+      "id": "U115",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U116": {
+      "id": "U116",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U117": {
+      "id": "U117",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U118": {
+      "id": "U118",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U119": {
+      "id": "U119",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U120": {
+      "id": "U120",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U121": {
+      "id": "U121",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U122": {
+      "id": "U122",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U123": {
+      "id": "U123",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U124": {
+      "id": "U124",
+      "description": "资料尚未齐全",
+      "contains_private_data": false
+    },
+    "U125": {
+      "id": "U125",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U126": {
+      "id": "U126",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U127": {
+      "id": "U127",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U128": {
+      "id": "U128",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U129": {
+      "id": "U129",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U130": {
+      "id": "U130",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U131": {
+      "id": "U131",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U132": {
+      "id": "U132",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U133": {
+      "id": "U133",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U134": {
+      "id": "U134",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U135": {
+      "id": "U135",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U136": {
+      "id": "U136",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U137": {
+      "id": "U137",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U138": {
+      "id": "U138",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U139": {
+      "id": "U139",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U140": {
+      "id": "U140",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U141": {
+      "id": "U141",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U142": {
+      "id": "U142",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U143": {
+      "id": "U143",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U144": {
+      "id": "U144",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U145": {
+      "id": "U145",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U146": {
+      "id": "U146",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U147": {
+      "id": "U147",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U148": {
+      "id": "U148",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U149": {
+      "id": "U149",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U150": {
+      "id": "U150",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U151": {
+      "id": "U151",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U152": {
+      "id": "U152",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U153": {
+      "id": "U153",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U154": {
+      "id": "U154",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U155": {
+      "id": "U155",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U156": {
+      "id": "U156",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U157": {
+      "id": "U157",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U158": {
+      "id": "U158",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U159": {
+      "id": "U159",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U160": {
+      "id": "U160",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U161": {
+      "id": "U161",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U162": {
+      "id": "U162",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U163": {
+      "id": "U163",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U164": {
+      "id": "U164",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U165": {
+      "id": "U165",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U166": {
+      "id": "U166",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U167": {
+      "id": "U167",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U168": {
+      "id": "U168",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U169": {
+      "id": "U169",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U170": {
+      "id": "U170",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U171": {
+      "id": "U171",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U172": {
+      "id": "U172",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U173": {
+      "id": "U173",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U174": {
+      "id": "U174",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U175": {
+      "id": "U175",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U176": {
+      "id": "U176",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U177": {
+      "id": "U177",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U178": {
+      "id": "U178",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U179": {
+      "id": "U179",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U180": {
+      "id": "U180",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U181": {
+      "id": "U181",
+      "title": "未授权素材",
+      "description": "合成风险样本",
+      "copyright": "denied",
+      "contains_private_data": true
+    },
+    "U182": {
+      "id": "U182",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U183": {
+      "id": "U183",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U184": {
+      "id": "U184",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U185": {
+      "id": "U185",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U186": {
+      "id": "U186",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U187": {
+      "id": "U187",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U188": {
+      "id": "U188",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U189": {
+      "id": "U189",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U190": {
+      "id": "U190",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U191": {
+      "id": "U191",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U192": {
+      "id": "U192",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U193": {
+      "id": "U193",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U194": {
+      "id": "U194",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U195": {
+      "id": "U195",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U196": {
+      "id": "U196",
+      "title": "海边旅行",
+      "description": "原创旅行短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U197": {
+      "id": "U197",
+      "title": "理财宣传",
+      "description": "保证收益",
+      "copyright": "licensed",
+      "contains_private_data": false
+    },
+    "U198": {
+      "id": "U198",
+      "title": "秋日风景",
+      "description": "待补版权凭证的原创短片",
+      "contains_private_data": false
+    },
+    "U199": {
+      "id": "U199",
+      "title": "城市漫步",
+      "description": "原创城市短片",
+      "copyright": "licensed",
+      "contains_private_data": false
+    }
+  },
+  "supplements": {
+    "M02": {
+      "copyright": "licensed"
+    },
+    "U003": {
+      "copyright": "licensed"
+    },
+    "U023": {
+      "copyright": "licensed"
+    },
+    "U024": {
+      "copyright": "licensed"
+    },
+    "U027": {
+      "copyright": "licensed"
+    },
+    "U043": {
+      "copyright": "licensed"
+    },
+    "U046": {
+      "copyright": "licensed"
+    },
+    "U047": {
+      "copyright": "licensed"
+    },
+    "U050": {
+      "copyright": "licensed"
+    },
+    "U061": {
+      "copyright": "licensed"
+    },
+    "U065": {
+      "copyright": "licensed"
+    },
+    "U066": {
+      "copyright": "licensed"
+    },
+    "U069": {
+      "copyright": "licensed"
+    },
+    "U073": {
+      "copyright": "licensed"
+    },
+    "U078": {
+      "copyright": "licensed"
+    },
+    "U079": {
+      "copyright": "licensed"
+    },
+    "U083": {
+      "copyright": "licensed"
+    },
+    "U090": {
+      "copyright": "licensed"
+    },
+    "U113": {
+      "copyright": "licensed"
+    },
+    "U117": {
+      "copyright": "licensed"
+    },
+    "U119": {
+      "copyright": "licensed"
+    },
+    "U122": {
+      "copyright": "licensed"
+    },
+    "U124": {
+      "copyright": "licensed"
+    },
+    "U150": {
+      "copyright": "licensed"
+    },
+    "U155": {
+      "copyright": "licensed"
+    },
+    "U159": {
+      "copyright": "licensed"
+    },
+    "U176": {
+      "copyright": "licensed"
+    },
+    "U178": {
+      "copyright": "licensed"
+    },
+    "U188": {
+      "copyright": "licensed"
+    },
+    "U195": {
+      "copyright": "licensed"
+    },
+    "U198": {
+      "copyright": "licensed"
+    }
+  },
+  "slots": [
+    "2026-11-05T09:00+08:00",
+    "2026-11-05T10:00+08:00",
+    "2026-11-05T11:00+08:00",
+    "2026-11-05T12:00+08:00",
+    "2026-11-05T13:00+08:00",
+    "2026-11-05T14:00+08:00",
+    "2026-11-05T15:00+08:00",
+    "2026-11-05T16:00+08:00",
+    "2026-11-05T17:00+08:00",
+    "2026-11-05T18:00+08:00",
+    "2026-11-05T19:00+08:00",
+    "2026-11-05T20:00+08:00",
+    "2026-11-05T21:00+08:00",
+    "2026-11-06T09:00+08:00",
+    "2026-11-06T10:00+08:00",
+    "2026-11-06T11:00+08:00",
+    "2026-11-06T12:00+08:00",
+    "2026-11-06T13:00+08:00",
+    "2026-11-06T14:00+08:00",
+    "2026-11-06T15:00+08:00",
+    "2026-11-06T16:00+08:00",
+    "2026-11-06T17:00+08:00",
+    "2026-11-06T18:00+08:00",
+    "2026-11-06T19:00+08:00",
+    "2026-11-06T20:00+08:00",
+    "2026-11-06T21:00+08:00",
+    "2026-11-07T09:00+08:00",
+    "2026-11-07T10:00+08:00",
+    "2026-11-07T11:00+08:00",
+    "2026-11-07T12:00+08:00",
+    "2026-11-07T13:00+08:00",
+    "2026-11-07T14:00+08:00",
+    "2026-11-07T15:00+08:00",
+    "2026-11-07T16:00+08:00",
+    "2026-11-07T17:00+08:00",
+    "2026-11-07T18:00+08:00",
+    "2026-11-07T19:00+08:00",
+    "2026-11-07T20:00+08:00",
+    "2026-11-07T21:00+08:00",
+    "2026-11-08T09:00+08:00",
+    "2026-11-08T10:00+08:00",
+    "2026-11-08T11:00+08:00",
+    "2026-11-08T12:00+08:00",
+    "2026-11-08T13:00+08:00",
+    "2026-11-08T14:00+08:00",
+    "2026-11-08T15:00+08:00",
+    "2026-11-08T16:00+08:00",
+    "2026-11-08T17:00+08:00",
+    "2026-11-08T18:00+08:00",
+    "2026-11-08T19:00+08:00",
+    "2026-11-08T20:00+08:00",
+    "2026-11-08T21:00+08:00",
+    "2026-11-09T09:00+08:00",
+    "2026-11-09T10:00+08:00",
+    "2026-11-09T11:00+08:00",
+    "2026-11-09T12:00+08:00",
+    "2026-11-09T13:00+08:00",
+    "2026-11-09T14:00+08:00",
+    "2026-11-09T15:00+08:00",
+    "2026-11-09T16:00+08:00",
+    "2026-11-09T17:00+08:00",
+    "2026-11-09T18:00+08:00",
+    "2026-11-09T19:00+08:00",
+    "2026-11-09T20:00+08:00",
+    "2026-11-09T21:00+08:00",
+    "2026-11-10T09:00+08:00",
+    "2026-11-10T10:00+08:00",
+    "2026-11-10T11:00+08:00",
+    "2026-11-10T12:00+08:00",
+    "2026-11-10T13:00+08:00",
+    "2026-11-10T14:00+08:00",
+    "2026-11-10T15:00+08:00",
+    "2026-11-10T16:00+08:00",
+    "2026-11-10T17:00+08:00",
+    "2026-11-10T18:00+08:00",
+    "2026-11-10T19:00+08:00",
+    "2026-11-10T20:00+08:00",
+    "2026-11-10T21:00+08:00",
+    "2026-11-11T09:00+08:00",
+    "2026-11-11T10:00+08:00",
+    "2026-11-11T11:00+08:00",
+    "2026-11-11T12:00+08:00",
+    "2026-11-11T13:00+08:00",
+    "2026-11-11T14:00+08:00",
+    "2026-11-11T15:00+08:00",
+    "2026-11-11T16:00+08:00",
+    "2026-11-11T17:00+08:00",
+    "2026-11-11T18:00+08:00",
+    "2026-11-11T19:00+08:00",
+    "2026-11-11T20:00+08:00",
+    "2026-11-11T21:00+08:00"
+  ],
+  "existing_schedule": [
+    {
+      "id": "campaign-douyin-5-12",
+      "channel": "douyin",
+      "start": "2026-11-05T12:00+08:00",
+      "end": "2026-11-05T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-5-18",
+      "channel": "douyin",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-5-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-05T12:00+08:00",
+      "end": "2026-11-05T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-5-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-05T18:00+08:00",
+      "end": "2026-11-05T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-6-12",
+      "channel": "douyin",
+      "start": "2026-11-06T12:00+08:00",
+      "end": "2026-11-06T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-6-18",
+      "channel": "douyin",
+      "start": "2026-11-06T18:00+08:00",
+      "end": "2026-11-06T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-6-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-06T12:00+08:00",
+      "end": "2026-11-06T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-6-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-06T18:00+08:00",
+      "end": "2026-11-06T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-7-12",
+      "channel": "douyin",
+      "start": "2026-11-07T12:00+08:00",
+      "end": "2026-11-07T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-7-18",
+      "channel": "douyin",
+      "start": "2026-11-07T18:00+08:00",
+      "end": "2026-11-07T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-7-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-07T12:00+08:00",
+      "end": "2026-11-07T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-7-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-07T18:00+08:00",
+      "end": "2026-11-07T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-8-12",
+      "channel": "douyin",
+      "start": "2026-11-08T12:00+08:00",
+      "end": "2026-11-08T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-8-18",
+      "channel": "douyin",
+      "start": "2026-11-08T18:00+08:00",
+      "end": "2026-11-08T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-8-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-08T12:00+08:00",
+      "end": "2026-11-08T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-8-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-08T18:00+08:00",
+      "end": "2026-11-08T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-9-12",
+      "channel": "douyin",
+      "start": "2026-11-09T12:00+08:00",
+      "end": "2026-11-09T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-9-18",
+      "channel": "douyin",
+      "start": "2026-11-09T18:00+08:00",
+      "end": "2026-11-09T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-9-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-09T12:00+08:00",
+      "end": "2026-11-09T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-9-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-09T18:00+08:00",
+      "end": "2026-11-09T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-10-12",
+      "channel": "douyin",
+      "start": "2026-11-10T12:00+08:00",
+      "end": "2026-11-10T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-10-18",
+      "channel": "douyin",
+      "start": "2026-11-10T18:00+08:00",
+      "end": "2026-11-10T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-10-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-10T12:00+08:00",
+      "end": "2026-11-10T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-10-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-10T18:00+08:00",
+      "end": "2026-11-10T19:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-11-12",
+      "channel": "douyin",
+      "start": "2026-11-11T12:00+08:00",
+      "end": "2026-11-11T13:00+08:00"
+    },
+    {
+      "id": "campaign-douyin-11-18",
+      "channel": "douyin",
+      "start": "2026-11-11T18:00+08:00",
+      "end": "2026-11-11T19:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-11-12",
+      "channel": "xiaohongshu",
+      "start": "2026-11-11T12:00+08:00",
+      "end": "2026-11-11T13:00+08:00"
+    },
+    {
+      "id": "campaign-xiaohongshu-11-18",
+      "channel": "xiaohongshu",
+      "start": "2026-11-11T18:00+08:00",
+      "end": "2026-11-11T19:00+08:00"
+    }
+  ]
+}

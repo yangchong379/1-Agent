@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前交付状态：离线工程验证已完成；真实 DeepSeek 已跑通并核查1条冲突排期路径，完整真实模型评估尚未完成。GitHub 仓库尚未创建/推送。** 不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；至少还须补充另一条不同工具观察下的真实模型路径并审核记录。
+**当前验证状态：离线工程验证已完成；真实 DeepSeek 已跑通并核查1条冲突排期路径，完整真实模型评估尚未完成。** 项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。不能把 Mock Trace 作为满足模型驱动 ReAct 的证据；至少还须补充另一条不同工具观察下的真实模型路径并审核记录。
 
 ## 评审入口
 
@@ -113,4 +113,4 @@ Base URL 不含 `/chat/completions`，代码会拼接该路径；密钥来自环
 
 ## GitHub 提交
 
-题号：**1 · 素材审核与发布排期 Agent**。当前 GitHub URL：**未提供，未推送**。本地提交 SHA 可执行 `git rev-parse HEAD` 获取。推送、补跑真实模型、补记候选人实际贡献后，按 [交接说明](docs/06-handoff.md) 提交最终 URL 与最终 SHA。
+题号：**1 · 素材审核与发布排期 Agent**。GitHub URL：[https://github.com/yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。完整提交 SHA 可执行 `git rev-parse HEAD` 获取，并与 GitHub 最新提交核对。后续补跑真实模型、补记候选人实际贡献并提交后，应使用更新后的最终 SHA。详见 [交接说明](docs/06-handoff.md)。

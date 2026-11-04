@@ -40,17 +40,17 @@ python scripts/run.py --input examples/inputs/changed_occupancy.json --data exam
 
 ## GitHub 交付
 
-当前没有目标仓库地址，没有推送或创建远程仓库。本地仓库已有 AI 初稿提交，可在仓库目录执行：
+用户已创建目标仓库 [yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)，并明确授权助手上传代码、文档、测试与实际运行记录。本地仓库保留 AI 初稿及后续修改历史，可在仓库目录执行：
 
 ```bash
 git log -1 --oneline
 git rev-parse HEAD
 ```
 
-你可在 GitHub 新建一个空仓库（不要预建 README），然后在本地仓库中执行：
+该目标仓库初次检查时为空；本地与远端的连接及后续更新命令为：
 
 ```bash
-git remote add origin https://github.com/你的账号/你的仓库.git
+git remote add origin https://github.com/yangchong379/1-Agent.git
 git push -u origin main
 ```
 
@@ -66,7 +66,7 @@ git clone material-scheduling-agent.bundle material-scheduling-agent
 
 ```text
 题号：1 素材审核与发布排期 Agent
-GitHub URL：填写实际仓库 URL
+GitHub URL：https://github.com/yangchong379/1-Agent
 最终 commit SHA：运行 git rev-parse HEAD 后填写完整40位SHA
 真实模型验证：填写已验证模型及报告路径，或如实注明尚未验证
 ```

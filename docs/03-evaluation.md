@@ -15,6 +15,8 @@ python scripts/evaluate.py
 
 **修复后只补跑上述5项，5/5通过，耗时425.734秒。** [重跑原始summary](../examples/runs/live-retry-1/summary.json)、[累计复核](../examples/runs/LIVE-REVIEW.md)、[逐项检查与文件摘要](../examples/runs/live-comparison.json)均保留。13个场景跨修复前后版本均有通过记录，不将其表述为当前源码单次全量13/13或模型稳定成功率。模型是真实调用，保存故障由本地工具故障注入，业务素材/规则为合成数据。
 
+原始JSON按字节保留，`.gitattributes`禁止Git对`examples/`下JSON自动转换换行，确保报告中的SHA-256可在远端检出后核对。该设置不改变输入、输出或Trace内容。
+
 | 真实验收点 | 输入 | 实际输出及Trace |
 |---|---|---|
 | 正常排期 | [input](../examples/runs/live/normal/input.json) | [result](../examples/runs/live/normal/result.json) |

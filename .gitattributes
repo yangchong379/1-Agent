@@ -1,0 +1,2 @@
+# Preserve original JSON evidence bytes so recorded SHA-256 works on every OS.
+examples/**/*.json -text

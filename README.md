@@ -77,7 +77,7 @@ python scripts/run.py --input examples/inputs/normal.json --db .runtime/failure.
 py -3.11 scripts/connect_deepseek.py
 ```
 
-粘贴密钥时没有字符显示是正常行为，按回车后等待结果。脚本仅运行一次冲突案例，最多12步，使用真实 API 额度；凭据只存在于该进程内，不写入文件。真实结果保存为 `examples/runs/live-conflict.json`。如果密钥曾发到聊天或公开位置，请先在平台撤销并重新创建。当前尚未完成远端验证，新增脚本的本地测试使用模拟执行器。
+Windows 下会弹出密码输入窗口：点击输入框，按 Ctrl+V 粘贴实际密钥，再点 OK。窗口以星号显示输入，支持正常粘贴；不要自己输入星号。Windows 入口需要 Python 自带的 tkinter（本机已确认可用）；非 Windows 仍使用终端隐藏输入。脚本仅运行一次冲突案例，最多12步，使用真实 API 额度；凭据只存在于该进程内，不写入文件。真实结果保存为 `examples/runs/live-conflict.json`。如果密钥曾发到聊天或公开位置，请先在平台撤销并重新创建。当前尚未完成远端验证，新增脚本的本地测试使用模拟执行器和模拟密码窗口。
 
 适配实现使用 Chat Completions function calling，可配置 DeepSeek 或提供该协议的服务。用户已提供 DeepSeek 官方平台链接；2026-11-04 核对官方文档，`deepseek-flash` 对应 DeepSeek-V4.1-Flash-1017，根地址为 `https://api.deepseek.com`。此处是官方型号映射，并非远端调用成功记录。依据：[DeepSeek 首次调用](https://api-docs.deepseek.com/)、[模型列表](https://api-docs.deepseek.com/quick_start/pricing/)、[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)。
 

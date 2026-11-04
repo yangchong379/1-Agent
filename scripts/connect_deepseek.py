@@ -10,17 +10,46 @@ sys.path.insert(0, str(ROOT / "src"))
 from scheduling_agent.cli import main
 
 
+def read_secret(prompt):
+    if sys.platform != "win32":
+        return getpass.getpass(prompt)
+    try:
+        import tkinter as tk
+        from tkinter import simpledialog
+    except ImportError:
+        raise RuntimeError("Windows password dialog requires tkinter") from None
+    root = None
+    try:
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes("-topmost", True)
+        value = simpledialog.askstring(
+            "DeepSeek API Key", "在这里粘贴新 API Key，然后点 OK。\n输入以星号显示，不会保存到文件。",
+            show="*", parent=root)
+        return value or ""
+    except tk.TclError:
+        raise RuntimeError("Cannot open password dialog") from None
+    finally:
+        if root is not None:
+            root.destroy()
+
+
 def connect(secret_reader=None, runner=None):
-    secret_reader = secret_reader or getpass.getpass
+    secret_reader = secret_reader or read_secret
     runner = runner or main
     print("将运行一次真实模型排期案例，会消耗 DeepSeek API 额度。")
     print("密钥仅在本机隐藏输入，不写入文件；请勿输入星号或 PowerShell 提示符。")
+    if sys.platform == "win32":
+        print("请在即将弹出的密码输入窗口中粘贴密钥，再点 OK。", flush=True)
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("error", getpass.GetPassWarning)
             secret = secret_reader("请粘贴新 API Key，然后按回车（输入不会显示）: ").strip()
     except (EOFError, KeyboardInterrupt, getpass.GetPassWarning):
         print("已取消或终端不支持隐藏输入。请在本机交互式 PowerShell 中重新运行。")
+        return 4
+    except RuntimeError:
+        print("无法打开密码输入窗口。请使用带 tkinter 的本机 Python 3.11，并在桌面会话中重试。")
         return 4
     if not secret or set(secret) == {"*"} or any(not 33 <= ord(c) <= 126 for c in secret):
         print("未读取到有效密钥。请粘贴实际 API Key，不要粘贴星号、命令或提示符。")
@@ -45,7 +74,7 @@ def connect(secret_reader=None, runner=None):
 
 
 if __name__ == "__main__":
-    if not sys.stdin.isatty():
+    if sys.platform != "win32" and not sys.stdin.isatty():
         print("请在交互式 PowerShell 中运行本命令；不要使用管道或重定向输入密钥。")
         raise SystemExit(4)
     raise SystemExit(connect())

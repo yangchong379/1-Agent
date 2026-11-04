@@ -4,10 +4,10 @@ import os
 from pathlib import Path
 import sys
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from connect_deepseek import connect
+from connect_deepseek import connect, read_secret
 
 
 class ConnectionHelperTests(unittest.TestCase):
@@ -40,6 +40,27 @@ class ConnectionHelperTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 connect(lambda prompt: "fake-test-secret", broken)
             self.assertNotIn("MODEL_API_KEY", os.environ)
+
+    def test_windows_dialog_masks_input_and_destroys_window(self):
+        tk = MagicMock()
+        tk.TclError = RuntimeError
+        tk.simpledialog.askstring.return_value = "fake-test-secret"
+        with patch("connect_deepseek.sys.platform", "win32"), patch.dict(sys.modules, {
+                "tkinter": tk, "tkinter.simpledialog": tk.simpledialog}):
+            self.assertEqual(read_secret("prompt"), "fake-test-secret")
+        self.assertEqual(tk.simpledialog.askstring.call_args.kwargs["show"], "*")
+        tk.Tk.return_value.destroy.assert_called_once()
+
+    def test_cancelled_windows_dialog_does_not_call_model(self):
+        tk = MagicMock()
+        tk.TclError = RuntimeError
+        tk.simpledialog.askstring.return_value = None
+        runner = MagicMock()
+        with patch("connect_deepseek.sys.platform", "win32"), patch.dict(sys.modules, {
+                "tkinter": tk, "tkinter.simpledialog": tk.simpledialog}), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(connect(runner=runner), 4)
+        runner.assert_not_called()
+        tk.Tk.return_value.destroy.assert_called_once()
 
 
 if __name__ == "__main__":

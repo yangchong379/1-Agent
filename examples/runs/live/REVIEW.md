@@ -43,3 +43,5 @@
 AI逐项核对了13组最终状态、工具观察和数据库快照：所有场景保持published=false；保存成功声明与快照一致；硬性要求的替代草稿保持pending_user或具有精确用户批准。业务断言失败与这些安全边界的通过分别记录于[review.json](review.json)。这不是生产安全保证，也不是独立人工签字。
 
 下一步在本机运行 `py -3.11 scripts/connect_deepseek.py --retry-failed`，只补跑5个失败项，保存到独立的live-retry-N目录。保留首轮失败记录并比较源码摘要和新Trace。
+
+后续更新：这五项已在修复版中重跑5/5通过；本文件保留首轮复核范围，最新跨版本对照与后续展示修正见[累计复核](../LIVE-REVIEW.md)。

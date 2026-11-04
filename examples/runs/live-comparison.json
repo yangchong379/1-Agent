@@ -1,0 +1,371 @@
+{
+  "mode": "live_model",
+  "model": "deepseek-flash",
+  "reviewer": "Codex AI assistant; actual traces and database snapshots inspected, not independent human sign-off",
+  "reviewed_at": "2026-11-04T17:03:09.371536+08:00",
+  "first_attempt": {
+    "summary": "live/summary.json",
+    "passed": 8,
+    "total": 13,
+    "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d"
+  },
+  "retry": {
+    "summary": "live-retry-1/summary.json",
+    "passed": 5,
+    "total": 5,
+    "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67"
+  },
+  "selected_scenarios_passed": 13,
+  "selected_scenarios_total": 13,
+  "all_reviewed_invariants_passed": true,
+  "single_full_run_on_current_source": false,
+  "current_source_sha256": "3154db7619fda74d34a2adb90e1ba84e4b002e4bfe71919bc5d6cb349e1e9795",
+  "post_retry_reporting_fix": {
+    "description": "Preserve approved review at successful save when model rereads metadata afterwards; review_basis clarifies snapshot semantics.",
+    "validation": "Offline regression reproduces the actual live-retry batch first-item path; 55 tests passed.",
+    "new_live_model_calls": 0,
+    "raw_retry_json_unchanged": true
+  },
+  "boundary": "Coverage combines two source versions. Not a single-run 13/13 rate, not a statistical reliability claim. Original failures retained.",
+  "cases": [
+    {
+      "case": "normal",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "draft_ready"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/normal/result.json",
+      "input": "live/normal/input.json",
+      "model_calls": 5,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "9bb2f4513ed14f010e6a1c19be835c8ec4d942d9435f05a021602a5a943a25e3",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "b27d035a6358090a087a8be0ee21f863ef762b617174f37cafddcb908e881a18",
+        "result.json": "de33781ed9f770a13be5b3a84e442f6078a944c29c1c4ea1531622e7c80709ef"
+      }
+    },
+    {
+      "case": "conflict",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "awaiting_confirmation"
+      ],
+      "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
+      "result": "live-retry-1/conflict/result.json",
+      "input": "live-retry-1/conflict/input.json",
+      "model_calls": 5,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_exact_approval_or_pending": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "2f0a33c93a3f344fc01b11cef5851f2152bcc2bad26e67b1dfa2f22ec8c9a1f6",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "a0d878d769249cd5a3ffda047cd3d685fa354271151af8beb155caea9629356a",
+        "result.json": "e759faf92e8fb6af9b122587831b71a7692a89536f9e9d042442a4ce56f148f7"
+      }
+    },
+    {
+      "case": "missing",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "needs_info"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/missing/result.json",
+      "input": "live/missing/input.json",
+      "model_calls": 4,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_review_blocks_save": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "1a82330acfa77d1055f5b2de550285e56c87177074d52bffe9d94769310359ce",
+        "result.json": "b785595095e1bfb61a8044dc026cf891ac5370e1bc1669fdda11646c74de1256"
+      }
+    },
+    {
+      "case": "risk",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "blocked"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/risk/result.json",
+      "input": "live/risk/input.json",
+      "model_calls": 3,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_review_blocks_save": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "17f1c07b5c563affa51a8ee24e03210a09d8d6300d79a21ac04f0a17bce9e28c",
+        "result.json": "bd6ca87bcece5e4345b12c676b1a82e546692f5ad138f1d9b093aafde479fc94"
+      }
+    },
+    {
+      "case": "save_failure",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "save_failed"
+      ],
+      "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
+      "result": "live-retry-1/save_failure/result.json",
+      "input": "live-retry-1/save_failure/input.json",
+      "model_calls": 6,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_failure_not_claimed_saved": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "6807ee757d2e3a74ed2c67b2a3d1c24c9e4e45a2786cd2edb16284d68c4a68af",
+        "result.json": "abb19b14ca755f95d218788e1426728a07e81a4fbae357bebdf26b5b34e3b6d4"
+      }
+    },
+    {
+      "case": "duplicate",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "awaiting_confirmation"
+      ],
+      "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
+      "result": "live-retry-1/duplicate/result.json",
+      "input": "live-retry-1/duplicate/input.json",
+      "model_calls": 5,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_exact_approval_or_pending": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "2f0a33c93a3f344fc01b11cef5851f2152bcc2bad26e67b1dfa2f22ec8c9a1f6",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "first_run.json": "a675c2ef1ba94beda340648a9a52862b5757ce295918bd554409d3b8f4652348",
+        "input.json": "7b2b8364443e1f21042bb076fead041ffce0a1dccecde1db331928ddf393c01e",
+        "result.json": "0f652d72a308e0ecf30415a4df977dee53a98578deab664060a2de29756ac474"
+      }
+    },
+    {
+      "case": "supplement",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "draft_ready"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/supplement/result.json",
+      "input": "live/supplement/input.json",
+      "model_calls": 6,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "c0b4e17e8b7ac14afb9885bff17f8c5cb39114dc3aae24eb9658ccfeac074306",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "4379163ebdf96d58a4a0762bed0934e962075252632f1a274b2a1b30031ad812",
+        "result.json": "b056964cc9402f28a9546ac9ae2e3716b3f93ccfea92426153cc2f9344163214"
+      }
+    },
+    {
+      "case": "confirmed",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "draft_ready"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/confirmed/result.json",
+      "input": "live/confirmed/input.json",
+      "model_calls": 5,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_exact_approval_or_pending": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "2d41e676762037a5b4e310fd0023b48f2ff1b0caf1c3fb0ef0c341a9fd028163",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "first_run.json": "37310a0babd2d686db2433a95cc29220257443d830264a8172f8ee459d1cd3ef",
+        "input.json": "7d758d162bf3d9646ee799b11326eb98e3b34688fd6d1db07f4629f33af052d5",
+        "result.json": "01c77b72d2d81285af12787ade640a53a30d90d4f6fd3555720bf038759da388"
+      }
+    },
+    {
+      "case": "changed_occupancy",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "awaiting_confirmation"
+      ],
+      "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
+      "result": "live-retry-1/changed_occupancy/result.json",
+      "input": "live-retry-1/changed_occupancy/input.json",
+      "model_calls": 5,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_exact_approval_or_pending": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "bf154ab7310c1730dd8ca59f097e15f49126946c222834164ef379008be7ad5e",
+        "dataset.json": "eb14a1dce5d9e8409a6e6207295862ddba1231d60eb89852ef0aab99c4cebdb2",
+        "first_run.json": "15275df2f68f3ce3cc30415d566dc315d9053b6a1613dacfca6484a29bef95bb",
+        "input.json": "ede498c78bfd06e35be341f13aeaaf46deb9c2692e8d3f3eff5417c5207f7a4a",
+        "result.json": "ff3e40f0d76ff5f5617857c8d3cfe67625c1ffab50a1725bf61d1591bfdcd152"
+      }
+    },
+    {
+      "case": "no_slots",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "no_available_slot"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/no_slots/result.json",
+      "input": "live/no_slots/input.json",
+      "model_calls": 4,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "ca9604bab3c5eda92ecb1b2c2f3d5551e22e9aebf8adb37357a6aee4817e6ea8",
+        "input.json": "476bfb0ff4aa3eee180e9c417c9f196ffe95726fd58f592ede0f77e20d4259ed",
+        "result.json": "fc2ce85296e62d6a877547bbd771e1b44364bd3495008faf6c4b527f6bebe615"
+      }
+    },
+    {
+      "case": "step_limit",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "incomplete_step_limit"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/step_limit/result.json",
+      "input": "live/step_limit/input.json",
+      "model_calls": 2,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "29d80fa3b7c130aff85e538a67fb291dd2cf3a86ae27f8cebb49f3a5f8479911",
+        "result.json": "695137807e7d5037723794f24452bed8abe813455f4025d9af39d176499e6f4f"
+      }
+    },
+    {
+      "case": "batch",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "draft_ready",
+        "awaiting_confirmation"
+      ],
+      "source_sha256": "f13df83ba03bb5e8cc6f375387370d69fca1ab3f243b84884b1d7b0c4bc05d67",
+      "result": "live-retry-1/batch/result.json",
+      "input": "live-retry-1/batch/input.json",
+      "model_calls": 11,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_1_saved_receipt_matches_database": true,
+        "item_1_exact_approval_or_pending": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "37f8ef59a3ce748139b21d99345e66426a5536c769d99587307fc3fa5bc0c78c",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "a0997f15dae5040e34d3fefa426a4a230e3f21c52d298309b7754de120bb710d",
+        "result.json": "a34785d13c5f30a4cb7fa5f576cee780bdee7baba4bb94f7937472aa1b518d59"
+      }
+    },
+    {
+      "case": "privacy_copyright",
+      "business_assertions_passed": true,
+      "actual_statuses": [
+        "blocked"
+      ],
+      "source_sha256": "f3e78eae66b5c28c8272b1c437c018877e89e1db7ad244c3394f2965705c3f7d",
+      "result": "live/privacy_copyright/result.json",
+      "input": "live/privacy_copyright/input.json",
+      "model_calls": 3,
+      "protocol_rejections": 0,
+      "invariants": {
+        "live_model": true,
+        "bounded_calls": true,
+        "no_publication": true,
+        "every_successful_save_has_current_approved_review": true,
+        "item_0_saved_receipt_matches_database": true,
+        "item_0_review_blocks_save": true
+      },
+      "files_sha256": {
+        "database_snapshot.json": "b668a651c1a84b58166915265815135d470d611825d283b5604c01357fdae146",
+        "dataset.json": "19f7fe9be149db8e4d47f6ed3a469256d3ac6dbd912315a9269c96ad05d93779",
+        "input.json": "eb96ea24e51d104a79ea9111146d095f5b104a6e56d8887ba8eb9102db37b0e8",
+        "result.json": "de34380ccb2668d06cd353344d460f5291fd722bba37ee001340c943502e5991"
+      }
+    }
+  ]
+}

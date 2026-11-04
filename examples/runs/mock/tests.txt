@@ -27,6 +27,7 @@ test_reused_request_id_different_payload_rejected (test_agent.AgentTests.test_re
 test_rule_risk_blocks (test_agent.AgentTests.test_rule_risk_blocks) ... ok
 test_save_failure_rolls_back_and_is_explicit (test_agent.AgentTests.test_save_failure_rolls_back_and_is_explicit) ... ok
 test_save_without_slot_observation_rejected (test_agent.AgentTests.test_save_without_slot_observation_rejected) ... ok
+test_saved_review_snapshot_survives_observed_post_save_reread (test_agent.AgentTests.test_saved_review_snapshot_survives_observed_post_save_reread) ... ok
 test_sqlite_transaction_start_failure_is_explicit (test_agent.AgentTests.test_sqlite_transaction_start_failure_is_explicit) ... ok
 test_step_limit_is_global_and_returns_all_items (test_agent.AgentTests.test_step_limit_is_global_and_returns_all_items) ... ok
 test_supplement_changes_next_action (test_agent.AgentTests.test_supplement_changes_next_action) ... ok
@@ -54,6 +55,6 @@ test_runner_error_still_removes_temporary_key (test_connection_helper.Connection
 test_windows_dialog_masks_input_and_destroys_window (test_connection_helper.ConnectionHelperTests.test_windows_dialog_masks_input_and_destroys_window) ... ok
 
 ----------------------------------------------------------------------
-Ran 54 tests in 4.216s
+Ran 55 tests in 4.228s
 
 OK

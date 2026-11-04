@@ -12,7 +12,7 @@
     "hard_time": true,
     "approved_slots": {}
   },
-  "started_at_utc": "2026-11-04T08:44:59.453950+00:00",
+  "started_at_utc": "2026-11-04T09:00:05.067082+00:00",
   "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
   "max_steps": 40,
   "model_calls": 3,
@@ -25,6 +25,7 @@
       "material_id": "M05",
       "status": "blocked",
       "review_status": "blocked",
+      "review_basis": "latest_rule_check",
       "risk_reasons": [
         {
           "code": "COPYRIGHT_DENIED",

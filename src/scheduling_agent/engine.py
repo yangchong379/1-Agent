@@ -8,7 +8,7 @@ from .models import ModelError, ModelProtocolError, TOOLS
 
 def initial_state(material_id):
     return {"material_id": material_id, "material": None, "review": None,
-            "supplemented": False, "query": None, "saved": None,
+            "supplemented": False, "query": None, "saved": None, "saved_review": None,
             "existing_draft": None, "last_error": None, "save_attempted": False}
 
 
@@ -77,6 +77,7 @@ class Agent:
             result = self.store.save(req, mid, args["slot"], fail=self.fault == "save_draft")
             if result["ok"]:
                 state["saved"] = result
+                state["saved_review"] = copy.deepcopy(current)
                 state["last_error"] = None
             else:
                 state["last_error"] = result["code"]
@@ -139,7 +140,8 @@ class Agent:
                     stop = "finished"
                     break
             saved = state["saved"]
-            audit = state["review"] or {"status": "unchecked", "missing_fields": [], "risks": []}
+            audit = (state["saved_review"] if saved else state["review"]) or {
+                "status": "unchecked", "missing_fields": [], "risks": []}
             pending = [f"补充 {field}" for field in audit["missing_fields"]]
             if saved and saved["confirmation"] == "pending_user":
                 pending.append(f"请确认是否将 {req['preferred_slot']} 调整为 {saved['slot']}；原硬性要求保持不变")
@@ -147,7 +149,8 @@ class Agent:
                 pending.append("已有草稿与本次要求冲突，需要用户明确处理")
             items.append({"material_id": mid,
                 "status": self.result_status(state) if stop == "finished" else "incomplete_" + stop,
-                "review_status": audit["status"], "risk_reasons": audit["risks"],
+                "review_status": audit["status"], "review_basis": "at_successful_save" if saved else "latest_rule_check",
+                "risk_reasons": audit["risks"],
                 "missing_fields": audit["missing_fields"], "requested_slot": req["preferred_slot"],
                 "hard_time": req["hard_time"], "suggested_slot": saved["slot"] if saved else None,
                 "pending_confirmation": pending,

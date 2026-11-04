@@ -9,9 +9,20 @@ python -m unittest discover -s tests -v
 python scripts/evaluate.py
 ```
 
-**实际结果：54 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
+**实际结果：55 个自动化测试全部通过，13/13 组离线场景断言通过。** 精确执行时间、源码 SHA-256、平台、逐项检查见 [summary.json](../examples/runs/mock/summary.json)，测试名称与结果见 [tests.txt](../examples/runs/mock/tests.txt)。这些是运行代码产生的文件，不是人工编造的日志。时间戳使用 UTC；人类交接时间使用香港时间 UTC+8。
 
 **真实模型：首轮完整13组已执行，8/13通过、5项失败。** 模型为 `deepseek-flash`，真实模型决策配合本地合成业务工具，耗时988.813秒。正常、信息不足、风险、补查成功、明确批准、无时段、步数上限及版权隐私风险通过；冲突、保存故障、重复提交、变更占用后重复、批量场景未全部通过。见[原始summary](../examples/runs/live/summary.json)、[逐项复核](../examples/runs/live/REVIEW.md)。已有至少两条不同工具观察下的真实决策路径，但不能据此声称完整真实验收通过。最初单次冲突成功记录也保留在[live-conflict.json](../examples/runs/live-conflict.json)。
+
+**修复后只补跑上述5项，5/5通过，耗时425.734秒。** [重跑原始summary](../examples/runs/live-retry-1/summary.json)、[累计复核](../examples/runs/LIVE-REVIEW.md)、[逐项检查与文件摘要](../examples/runs/live-comparison.json)均保留。13个场景跨修复前后版本均有通过记录，不将其表述为当前源码单次全量13/13或模型稳定成功率。模型是真实调用，保存故障由本地工具故障注入，业务素材/规则为合成数据。
+
+| 真实验收点 | 输入 | 实际输出及Trace |
+|---|---|---|
+| 正常排期 | [input](../examples/runs/live/normal/input.json) | [result](../examples/runs/live/normal/result.json) |
+| 资料不足 | [input](../examples/runs/live/missing/input.json) | [result](../examples/runs/live/missing/result.json) |
+| 工具保存失败 | [input](../examples/runs/live-retry-1/save_failure/input.json) | [result](../examples/runs/live-retry-1/save_failure/result.json) |
+| 规则风险 | [input](../examples/runs/live/risk/input.json) | [result](../examples/runs/live/risk/result.json) |
+| 时段冲突 | [input](../examples/runs/live-retry-1/conflict/input.json) | [result](../examples/runs/live-retry-1/conflict/result.json) |
+| 重复提交 | [input](../examples/runs/live-retry-1/duplicate/input.json) | [首次](../examples/runs/live-retry-1/duplicate/first_run.json)、[重复](../examples/runs/live-retry-1/duplicate/result.json) |
 
 ## 首轮真实失败与修复
 
@@ -25,7 +36,9 @@ python scripts/evaluate.py
 
 首轮代码的`MODEL_EXPECTED_ONE_TOOL_CALL`未记录数量，不能从旧记录确定是零调用还是多调用。修复后记录`diagnostics.tool_calls_count`，拒绝响应不执行动作，并向模型回传纠正反馈；每次纠正计入全局上限。非思考模式采用`required`，思考/自动模式保留`auto`。无效行动依据同样有界纠正；HTTP、非法JSON等仍明确停止。
 
-工具反馈也补充“重新读取/补查会使旧审核失效，须重审”，并澄清可先保存待确认草稿。新增测试证明拒绝批次无执行、原调用ID完整回传、纠正不突破上限以及只重跑失败项。**这些是代码回归验证，修复后的真实效果仍待补跑。** 用`py -3.11 scripts/connect_deepseek.py --retry-failed`只重跑五项，新记录写入`examples/runs/live-retry-N/`，首轮保留。
+工具反馈也补充“重新读取/补查会使旧审核失效，须重审”，并澄清可先保存待确认草稿。新增测试证明拒绝批次无执行、原调用ID完整回传、纠正不突破上限以及只重跑失败项。使用`--retry-failed`完成五项真实重跑，全部通过；该次没有触发协议纠正，拒绝/纠正分支仍主要由单元测试验证，不能据此保证今后绝不出现协议错误。
+
+重跑批量记录还暴露结果展示问题：M01保存前审核通过，保存后模型再次读取使最终`review_status`显示为`unchecked`，但真实保存前的审核与提交回执均有效。随后结果投影改为保留成功保存时的审核快照，并输出`review_basis=at_successful_save`；新增`test_saved_review_snapshot_survives_observed_post_save_reread`复现该实际动作序列并通过。这个修改仅影响本地结果投影，未再次调用模型；原始重跑JSON仍保留原显示，不能冒充展示修正后的新实测输出。最新本地回归为55个测试通过，源码摘要见离线summary。
 
 ## 逐场景预期与实际
 

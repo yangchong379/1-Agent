@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "mode": "live_model",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "save_failure",
+    "material_ids": [
+      "M01"
+    ],
+    "channel": "douyin",
+    "preferred_slot": "2026-11-05T17:00+08:00",
+    "hard_time": true,
+    "approved_slots": {}
+  },
+  "started_at_utc": "2026-11-04T08:50:06.507743+00:00",
+  "dataset_sha256": "154b46de8c6de6a1c5594db68961a9b75229cb50145acafc1b2d5ba97cb533b7",
+  "max_steps": 40,
+  "model_calls": 6,
+  "tool_calls": 6,
+  "protocol_rejections": 0,
+  "execution_complete": true,
+  "all_drafts_saved": false,
+  "items": [
+    {
+      "material_id": "M01",
+      "status": "save_failed",
+      "review_status": "approved",
+      "risk_reasons": [],
+      "missing_fields": [],
+      "requested_slot": "2026-11-05T17:00+08:00",
+      "hard_time": true,
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "draft_save_status": "failed",
+      "draft_id": null,
+      "save_receipt": null,
+      "stop_reason": "finished",
+      "error": "SAVE_FAILED",
+      "published": false
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "material_id": "M01",
+      "action": {
+        "tool": "read_material",
+        "arguments": {},
+        "rationale": "Start by reading M01 metadata and existing draft."
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "id": "M01",
+          "title": "城市漫步",
+          "description": "原创城市短片",
+          "copyright": "licensed",
+          "contains_private_data": false
+        },
+        "existing_draft": null,
+        "review_required": true,
+        "note": "Reading metadata invalidates previous review; call check_rules before saving."
+      },
+      "next_action": "check_rules"
+    },
+    {
+      "step": 2,
+      "material_id": "M01",
+      "action": {
+        "tool": "check_rules",
+        "arguments": {},
+        "rationale": "Metadata fields present; run compliance check before saving."
+      },
+      "observation": {
+        "ok": true,
+        "status": "approved",
+        "missing_fields": [],
+        "risks": [],
+        "rule_version": "synthetic-v1"
+      },
+      "next_action": "query_slots"
+    },
+    {
+      "step": 3,
+      "material_id": "M01",
+      "action": {
+        "tool": "query_slots",
+        "arguments": {},
+        "rationale": "Check availability of the hard preferred slot 2026-11-05T17:00+08:00."
+      },
+      "observation": {
+        "ok": true,
+        "available": [
+          "2026-11-05T17:00+08:00",
+          "2026-11-05T19:00+08:00",
+          "2026-11-05T20:00+08:00"
+        ],
+        "occupied": [
+          {
+            "slot": "2026-11-05T18:00+08:00",
+            "conflicts": [
+              "existing-18"
+            ]
+          }
+        ],
+        "preferred_slot": "2026-11-05T17:00+08:00",
+        "preferred_available": true
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 4,
+      "material_id": "M01",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-05T17:00+08:00"
+        },
+        "rationale": "Rules approved and preferred hard slot is free, so save the draft there."
+      },
+      "observation": {
+        "ok": false,
+        "code": "SAVE_FAILED",
+        "retryable": true
+      },
+      "next_action": "save_draft"
+    },
+    {
+      "step": 5,
+      "material_id": "M01",
+      "action": {
+        "tool": "save_draft",
+        "arguments": {
+          "slot": "2026-11-05T17:00+08:00"
+        },
+        "rationale": "Retrying the same free preferred slot once after a transient save error."
+      },
+      "observation": {
+        "ok": false,
+        "code": "SAVE_FAILED",
+        "retryable": true
+      },
+      "next_action": "finish"
+    },
+    {
+      "step": 6,
+      "material_id": "M01",
+      "action": {
+        "tool": "finish",
+        "arguments": {},
+        "rationale": "Save failed twice with retryable error; per policy, stop after one retry with failure. Draft not saved."
+      },
+      "observation": {
+        "ok": true,
+        "code": "FINISHED",
+        "status": "save_failed"
+      },
+      "next_action": "stop"
+    }
+  ],
+  "boundary": "Live model tool decisions; synthetic business data; draft only"
+}

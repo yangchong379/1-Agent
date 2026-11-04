@@ -293,6 +293,23 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(result["items"][0]["status"], "incomplete_step_limit")
         self.assertEqual(self.store.count(), 0)
 
+    def test_saved_review_snapshot_survives_observed_post_save_reread(self):
+        # Regression reproduces the first item's actual live-retry batch path.
+        # This is an offline reporting test, not a new live model evaluation.
+        sequence = iter([Action("read_material"), Action("check_rules"), Action("query_slots"),
+                         Action("save_draft", {"slot": request()["preferred_slot"]}),
+                         Action("read_material"), Action("finish")])
+        class Replay(MockModel):
+            name = "offline-test-of-observed-post-save-reread"
+            def choose(self, *args):
+                return next(sequence)
+        result = Agent(Replay(), self.store, self.data).run(request())
+        item = result["items"][0]
+        self.assertEqual(item["status"], "draft_ready")
+        self.assertEqual(item["review_status"], "approved")
+        self.assertEqual(item["review_basis"], "at_successful_save")
+        self.assertEqual(item["draft_save_status"], "saved")
+
     def test_dataset_change_refuses_silent_reset(self):
         changed = copy.deepcopy(self.data)
         changed["rules"]["blocked_phrases"].append("changed")

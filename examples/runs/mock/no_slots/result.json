@@ -12,7 +12,7 @@
     "hard_time": true,
     "approved_slots": {}
   },
-  "started_at_utc": "2026-11-04T08:44:59.302088+00:00",
+  "started_at_utc": "2026-11-04T09:00:04.870548+00:00",
   "dataset_sha256": "1dd2258d5a6db7503cc1226944a6fc618048dbef2623d9219a33463e379036dc",
   "max_steps": 40,
   "model_calls": 4,
@@ -25,6 +25,7 @@
       "material_id": "M01",
       "status": "no_available_slot",
       "review_status": "approved",
+      "review_basis": "latest_rule_check",
       "risk_reasons": [],
       "missing_fields": [],
       "requested_slot": "2026-11-05T17:00+08:00",

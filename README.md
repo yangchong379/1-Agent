@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
-**当前验证状态：54个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 完整评估8/13通过，5项失败，原始记录已保留。** 已观察正常、资料不足、风险阻断、补查成功等多条真实动态路径。模型协议纠正与工具反馈已修复并通过回归测试，修复后的真实失败项重跑尚待完成。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明，不将首轮失败改写为成功。
+**当前验证状态：55个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 评估8/13通过，修复后五个失败项重跑5/5通过。** 首轮失败和重跑均保留，[累计13场景证据及复核](examples/runs/LIVE-REVIEW.md)覆盖全部验收点，但这是跨版本累计记录，不是当前版本单次全量13/13或稳定成功率。另已修正保存后重读导致审核状态显示为unchecked的问题，并以实际路径做离线回归；该展示修正未新增模型调用。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明。
 
 ## 评审入口
 
@@ -11,6 +11,7 @@
 | 实际离线结果与完整 Trace | [examples/runs/mock/REPORT.md](examples/runs/mock/REPORT.md) |
 | 已核查的真实冲突路径 | [examples/runs/live-single/REPORT.md](examples/runs/live-single/REPORT.md) |
 | 首轮完整真实评估与失败复核 | [examples/runs/live/REVIEW.md](examples/runs/live/REVIEW.md) |
+| 修复后重跑与跨版本累计复核 | [examples/runs/LIVE-REVIEW.md](examples/runs/LIVE-REVIEW.md) |
 | 测试执行明细 | [examples/runs/mock/tests.txt](examples/runs/mock/tests.txt) |
 | 结构化结果、环境、源码摘要 | [examples/runs/mock/summary.json](examples/runs/mock/summary.json) |
 | 需求及验收映射 | [docs/01-requirements.md](docs/01-requirements.md) |

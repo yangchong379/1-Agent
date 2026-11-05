@@ -2,6 +2,8 @@
 
 帮助内容团队审核素材、查询无冲突时段、保存可供用户确认的排期草稿。**只保存草稿，项目中不存在发布接口。**
 
+时段查询失败时，执行器立即结束当前素材并返回 `query_failed`。批次继续处理其余素材。服务恢复后可以用原请求重试。用原始 007 和 019 请求、故障设置及前置快照进行离线回放，两条记录分别在 6 轮和 3 轮结束，已有草稿未被覆盖。[回归记录](examples/regressions/query-failure.json)
+
 **核心历史验证状态：55个自动化测试通过，13组离线场景通过；首轮真实 DeepSeek 评估8/13通过，修复后五个失败项重跑5/5通过。** 首轮失败和重跑均保留，[累计13场景证据及复核](examples/runs/LIVE-REVIEW.md)覆盖全部验收点，但这是跨版本累计记录，不是当前版本单次全量13/13或稳定成功率。另已修正保存后重读导致审核状态显示为unchecked的问题，并以实际路径做离线回归；该展示修正未新增模型调用。项目仓库：[yangchong379/1-Agent](https://github.com/yangchong379/1-Agent)。Mock不作为真实模型决策证明。
 
 ## 个人贡献与AI协作
@@ -132,7 +134,7 @@ Base URL 不含 `/chat/completions`，代码会拼接该路径；密钥来自环
 
 ## 连续混合需求评估（新增）
 
-新增两天、两个随机种子的连续需求回放，共96条请求；同一天所有到达共用一个SQLite数据库，每次到达重新连接。实际业务目标完成22/96，边界和状态检查96/96。这些是Mock离线结果，不能证明真实模型线上完成率。[流量评估说明](docs/08-product-traffic.md)、[第1天实际记录](examples/traffic/mock-product-day1/REPORT.md)、[第2天实际记录](examples/traffic/mock-product-day2/REPORT.md)、[当前57个回归测试](examples/traffic/regression-tests.txt)。
+新增两天、两个随机种子的连续需求回放，共96条请求；同一天所有到达共用一个SQLite数据库，每次到达重新连接。实际业务目标完成22/96，边界和状态检查96/96。这些是Mock离线结果，不能证明真实模型线上完成率。[流量评估说明](docs/08-product-traffic.md)、[第1天实际记录](examples/traffic/mock-product-day1/REPORT.md)、[第2天实际记录](examples/traffic/mock-product-day2/REPORT.md)、[当轮57个回归测试](examples/traffic/regression-tests.txt)。
 
 ```bash
 python scripts/traffic.py --model mock --count 48 --seed 20261104 --output .runtime/traffic-new

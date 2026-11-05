@@ -2,6 +2,7 @@
 from dataclasses import asdict
 from datetime import datetime, timezone
 import copy
+import sqlite3
 from .domain import digest, review, validate_request
 from .models import ModelError, ModelProtocolError, TOOLS
 
@@ -26,7 +27,7 @@ class Agent:
         expected = {"slot"} if name == "save_draft" else set()
         if set(args) != expected or (expected and not isinstance(args["slot"], str)):
             return {"ok": False, "code": "INVALID_TOOL_ARGUMENTS"}
-        if self.fault == name and name != "save_draft":
+        if self.fault == name and name not in {"save_draft", "query_slots"}:
             return {"ok": False, "code": "TOOL_UNAVAILABLE", "tool": name}
         mid = state["material_id"]
         if name == "read_material":
@@ -60,9 +61,18 @@ class Agent:
             state["review"] = review(state["material"], self.data["rules"])
             return {"ok": True, **state["review"], "rule_version": self.data["rules"]["version"]}
         if name == "query_slots":
-            state["query"] = self.store.query(req, mid)
-            state["last_error"] = None
-            return state["query"]
+            try:
+                if self.fault == name:
+                    result = {"ok": False, "code": "TOOL_UNAVAILABLE", "tool": name}
+                else:
+                    result = self.store.query(req, mid)
+            except sqlite3.Error:
+                result = {"ok": False, "code": "TOOL_UNAVAILABLE", "tool": name}
+            state["query"] = result if result["ok"] else None
+            state["last_error"] = None if result["ok"] else result["code"]
+            if not result["ok"]:
+                return {**result, "terminal": True, "reason": "Slot query failed. Retry the request when the query service is available."}
+            return result
         if name == "save_draft":
             # Recompute review; never trust the model's interpretation or cached status alone.
             if state["review"] is None or state["material"] is None:
@@ -136,6 +146,9 @@ class Agent:
                          "observation": copy.deepcopy(observation)}
                 history.append(event)
                 events.append(event)
+                if action.tool == "query_slots" and observation.get("terminal"):
+                    stop = "query_failed"
+                    break
                 if action.tool == "finish" and observation.get("ok"):
                     stop = "finished"
                     break
@@ -147,8 +160,14 @@ class Agent:
                 pending.append(f"请确认是否将 {req['preferred_slot']} 调整为 {saved['slot']}；原硬性要求保持不变")
             if self.result_status(state) == "needs_confirmation":
                 pending.append("已有草稿与本次要求冲突，需要用户明确处理")
+            if stop == "query_failed" and not saved:
+                status = "query_failed"
+            elif stop in {"finished", "query_failed"}:
+                status = self.result_status(state)
+            else:
+                status = "incomplete_" + stop
             items.append({"material_id": mid,
-                "status": self.result_status(state) if stop == "finished" else "incomplete_" + stop,
+                "status": status,
                 "review_status": audit["status"], "review_basis": "at_successful_save" if saved else "latest_rule_check",
                 "risk_reasons": audit["risks"],
                 "missing_fields": audit["missing_fields"], "requested_slot": req["preferred_slot"],
@@ -169,7 +188,7 @@ class Agent:
                 "max_steps": self.max_steps, "model_calls": calls,
                 "tool_calls": sum("action" in e for e in events),
                 "protocol_rejections": sum(e.get("recoverable", False) for e in events),
-                "execution_complete": all(i["stop_reason"] == "finished" for i in items),
+                "execution_complete": all(i["stop_reason"] in {"finished", "query_failed"} for i in items),
                 "all_drafts_saved": all(i["draft_save_status"] == "saved" for i in items),
                 "items": items, "trace": events,
                 "boundary": "MOCK validates control flow only; no real model evidence" if self.model.mode == "offline_mock"

@@ -46,7 +46,8 @@ requests confirmation and does not change the hard requirement or confirm a sche
 Prefer an existing draft's slot on duplicate submissions; otherwise prefer an explicitly approved
 slot, then preferred_slot if free, then the closest free slot at or after the requested time,
 then an earlier free slot. If save reports a fresh conflict, query again and adjust.
-On a transient save error you may retry once, then finish with failure. Finish once evidence
+If the slot query fails, the executor stops the current material. On a transient save error
+you may retry once, then finish with failure. Finish once evidence
 supports a result. A premature finish will be rejected. Only short action rationales are needed;
 do not output hidden reasoning. Keep rationale to one sentence of at most 240 characters.
 Reading or supplementing metadata invalidates prior review; run check_rules again before saving.

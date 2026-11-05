@@ -152,9 +152,27 @@ class AgentTests(unittest.TestCase):
 
     def test_tool_failure_cannot_be_success(self):
         result = self.run_agent(fault="query_slots", max_steps=8)
-        self.assertEqual(result["items"][0]["status"], "incomplete_step_limit")
+        item = result["items"][0]
+        self.assertEqual(item["status"], "query_failed")
+        self.assertEqual(item["error"], "TOOL_UNAVAILABLE")
+        self.assertTrue(result["execution_complete"])
+        self.assertFalse(result["all_drafts_saved"])
+        self.assertEqual(tools(result), ["read_material", "check_rules", "query_slots"])
         self.assertEqual(self.store.count(), 0)
-        self.assertTrue(any(e["observation"].get("code") == "TOOL_UNAVAILABLE" for e in result["trace"]))
+
+    def test_failed_query_keeps_existing_draft_and_continues_batch(self):
+        self.run_agent(request(request_id="initial"))
+        previous = self.store.draft("M01", "douyin")
+        req = request(material_ids=["M01", "M04"])
+        with patch.object(self.store, "query", side_effect=sqlite3.OperationalError("database busy")) as query:
+            result = self.run_agent(req)
+        self.assertEqual([item["status"] for item in result["items"]], ["query_failed", "blocked"])
+        query.assert_called_once()
+        self.assertNotIn("save_draft", tools(result))
+        self.assertEqual(self.store.draft("M01", "douyin"), previous)
+        self.assertEqual(self.store.count(), 1)
+        recovered = self.run_agent(req)
+        self.assertEqual(recovered["items"][0]["save_receipt"]["code"], "DUPLICATE")
 
     def test_unknown_material_does_not_schedule(self):
         result = self.run_agent(request("M404"))

@@ -1,0 +1,366 @@
+{
+  "mode": "offline_mock",
+  "cases": [
+    {
+      "case": "007",
+      "original_live_file": "examples/traffic/live-20261104-20261105-004121-535187/007/result.json",
+      "input": {
+        "sequence": 7,
+        "arrival_minute": 19,
+        "operator": "运营B",
+        "intent": "review_proposal",
+        "request": {
+          "request_id": "operator-followup-006",
+          "material_ids": [
+            "U001",
+            "U002"
+          ],
+          "channel": "douyin",
+          "preferred_slot": "2026-11-08T18:00+08:00",
+          "hard_time": false,
+          "approved_slots": {}
+        },
+        "service_fault": "query_slots",
+        "review_sequence": 2,
+        "operator_review": "Synthetic operator explicitly approves only previously proposed slots; no approval inferred by agent."
+      },
+      "original_live_model_calls": 40,
+      "original_live_statuses": [
+        "incomplete_step_limit",
+        "incomplete_step_limit"
+      ],
+      "existing_drafts_preserved": true,
+      "fixed_offline_result": {
+        "schema_version": "1.0",
+        "mode": "offline_mock",
+        "model": "deterministic-observation-policy-v1",
+        "request": {
+          "request_id": "operator-followup-006",
+          "material_ids": [
+            "U001",
+            "U002"
+          ],
+          "channel": "douyin",
+          "preferred_slot": "2026-11-08T18:00+08:00",
+          "hard_time": false,
+          "approved_slots": {}
+        },
+        "started_at_utc": "2026-11-05T06:28:58.049363+00:00",
+        "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+        "max_steps": 40,
+        "model_calls": 6,
+        "tool_calls": 6,
+        "protocol_rejections": 0,
+        "execution_complete": true,
+        "all_drafts_saved": false,
+        "items": [
+          {
+            "material_id": "U001",
+            "status": "query_failed",
+            "review_status": "approved",
+            "review_basis": "latest_rule_check",
+            "risk_reasons": [],
+            "missing_fields": [],
+            "requested_slot": "2026-11-08T18:00+08:00",
+            "hard_time": false,
+            "suggested_slot": null,
+            "pending_confirmation": [],
+            "draft_save_status": "not_attempted",
+            "draft_id": null,
+            "save_receipt": null,
+            "stop_reason": "query_failed",
+            "error": "TOOL_UNAVAILABLE",
+            "published": false
+          },
+          {
+            "material_id": "U002",
+            "status": "query_failed",
+            "review_status": "approved",
+            "review_basis": "latest_rule_check",
+            "risk_reasons": [],
+            "missing_fields": [],
+            "requested_slot": "2026-11-08T18:00+08:00",
+            "hard_time": false,
+            "suggested_slot": null,
+            "pending_confirmation": [],
+            "draft_save_status": "not_attempted",
+            "draft_id": null,
+            "save_receipt": null,
+            "stop_reason": "query_failed",
+            "error": "TOOL_UNAVAILABLE",
+            "published": false
+          }
+        ],
+        "trace": [
+          {
+            "step": 1,
+            "material_id": "U001",
+            "action": {
+              "tool": "read_material",
+              "arguments": {},
+              "rationale": "先读取素材与已有草稿"
+            },
+            "observation": {
+              "ok": true,
+              "material": {
+                "id": "U001",
+                "title": "城市漫步",
+                "description": "原创城市短片",
+                "copyright": "licensed",
+                "contains_private_data": false
+              },
+              "existing_draft": {
+                "id": "draft-7625c6dd2c7cbc95",
+                "material_id": "U001",
+                "channel": "douyin",
+                "requirement": "{\"hard_time\":false,\"preferred_slot\":\"2026-11-08T18:00+08:00\"}",
+                "slot": "2026-11-08T19:00+08:00",
+                "end": "2026-11-08T20:00:00+08:00",
+                "confirmation": "confirmed"
+              },
+              "review_required": true,
+              "note": "Reading metadata invalidates previous review; call check_rules before saving."
+            },
+            "next_action": "check_rules"
+          },
+          {
+            "step": 2,
+            "material_id": "U001",
+            "action": {
+              "tool": "check_rules",
+              "arguments": {},
+              "rationale": "根据已读取元数据执行规则检查"
+            },
+            "observation": {
+              "ok": true,
+              "status": "approved",
+              "missing_fields": [],
+              "risks": [],
+              "rule_version": "synthetic-v1"
+            },
+            "next_action": "query_slots"
+          },
+          {
+            "step": 3,
+            "material_id": "U001",
+            "action": {
+              "tool": "query_slots",
+              "arguments": {},
+              "rationale": "读取最新时段占用，避免冲突"
+            },
+            "observation": {
+              "ok": false,
+              "code": "TOOL_UNAVAILABLE",
+              "tool": "query_slots",
+              "terminal": true,
+              "reason": "Slot query failed. Retry the request when the query service is available."
+            },
+            "next_action": "stop"
+          },
+          {
+            "step": 4,
+            "material_id": "U002",
+            "action": {
+              "tool": "read_material",
+              "arguments": {},
+              "rationale": "先读取素材与已有草稿"
+            },
+            "observation": {
+              "ok": true,
+              "material": {
+                "id": "U002",
+                "title": "城市漫步",
+                "description": "原创城市短片",
+                "copyright": "licensed",
+                "contains_private_data": false
+              },
+              "existing_draft": {
+                "id": "draft-5063a12f0aa4b196",
+                "material_id": "U002",
+                "channel": "douyin",
+                "requirement": "{\"hard_time\":false,\"preferred_slot\":\"2026-11-08T18:00+08:00\"}",
+                "slot": "2026-11-08T20:00+08:00",
+                "end": "2026-11-08T21:00:00+08:00",
+                "confirmation": "confirmed"
+              },
+              "review_required": true,
+              "note": "Reading metadata invalidates previous review; call check_rules before saving."
+            },
+            "next_action": "check_rules"
+          },
+          {
+            "step": 5,
+            "material_id": "U002",
+            "action": {
+              "tool": "check_rules",
+              "arguments": {},
+              "rationale": "根据已读取元数据执行规则检查"
+            },
+            "observation": {
+              "ok": true,
+              "status": "approved",
+              "missing_fields": [],
+              "risks": [],
+              "rule_version": "synthetic-v1"
+            },
+            "next_action": "query_slots"
+          },
+          {
+            "step": 6,
+            "material_id": "U002",
+            "action": {
+              "tool": "query_slots",
+              "arguments": {},
+              "rationale": "读取最新时段占用，避免冲突"
+            },
+            "observation": {
+              "ok": false,
+              "code": "TOOL_UNAVAILABLE",
+              "tool": "query_slots",
+              "terminal": true,
+              "reason": "Slot query failed. Retry the request when the query service is available."
+            },
+            "next_action": "stop"
+          }
+        ],
+        "boundary": "MOCK validates control flow only; no real model evidence"
+      }
+    },
+    {
+      "case": "019",
+      "original_live_file": "examples/traffic/live-20261104-20261105-004121-535187/019/result.json",
+      "input": {
+        "sequence": 19,
+        "arrival_minute": 55,
+        "operator": "运营C",
+        "intent": "repeat",
+        "request": {
+          "request_id": "operator-009",
+          "material_ids": [
+            "U009"
+          ],
+          "channel": "douyin",
+          "preferred_slot": "2026-11-05T11:00+08:00",
+          "hard_time": true
+        },
+        "service_fault": "query_slots"
+      },
+      "original_live_model_calls": 40,
+      "original_live_statuses": [
+        "incomplete_step_limit"
+      ],
+      "existing_drafts_preserved": true,
+      "fixed_offline_result": {
+        "schema_version": "1.0",
+        "mode": "offline_mock",
+        "model": "deterministic-observation-policy-v1",
+        "request": {
+          "request_id": "operator-009",
+          "material_ids": [
+            "U009"
+          ],
+          "channel": "douyin",
+          "preferred_slot": "2026-11-05T11:00+08:00",
+          "hard_time": true,
+          "approved_slots": {}
+        },
+        "started_at_utc": "2026-11-05T06:28:58.053366+00:00",
+        "dataset_sha256": "8bcb2d0cd8d2c2710787251944ddf7c483a6a3bbc8983cb5da185519d27f4f1f",
+        "max_steps": 40,
+        "model_calls": 3,
+        "tool_calls": 3,
+        "protocol_rejections": 0,
+        "execution_complete": true,
+        "all_drafts_saved": false,
+        "items": [
+          {
+            "material_id": "U009",
+            "status": "query_failed",
+            "review_status": "approved",
+            "review_basis": "latest_rule_check",
+            "risk_reasons": [],
+            "missing_fields": [],
+            "requested_slot": "2026-11-05T11:00+08:00",
+            "hard_time": true,
+            "suggested_slot": null,
+            "pending_confirmation": [],
+            "draft_save_status": "not_attempted",
+            "draft_id": null,
+            "save_receipt": null,
+            "stop_reason": "query_failed",
+            "error": "TOOL_UNAVAILABLE",
+            "published": false
+          }
+        ],
+        "trace": [
+          {
+            "step": 1,
+            "material_id": "U009",
+            "action": {
+              "tool": "read_material",
+              "arguments": {},
+              "rationale": "先读取素材与已有草稿"
+            },
+            "observation": {
+              "ok": true,
+              "material": {
+                "id": "U009",
+                "title": "城市漫步",
+                "description": "原创城市短片",
+                "copyright": "licensed",
+                "contains_private_data": false
+              },
+              "existing_draft": {
+                "id": "draft-68002fe952c6e631",
+                "material_id": "U009",
+                "channel": "douyin",
+                "requirement": "{\"hard_time\":true,\"preferred_slot\":\"2026-11-08T17:00+08:00\"}",
+                "slot": "2026-11-08T21:00+08:00",
+                "end": "2026-11-08T22:00:00+08:00",
+                "confirmation": "pending_user"
+              },
+              "review_required": true,
+              "note": "Reading metadata invalidates previous review; call check_rules before saving."
+            },
+            "next_action": "check_rules"
+          },
+          {
+            "step": 2,
+            "material_id": "U009",
+            "action": {
+              "tool": "check_rules",
+              "arguments": {},
+              "rationale": "根据已读取元数据执行规则检查"
+            },
+            "observation": {
+              "ok": true,
+              "status": "approved",
+              "missing_fields": [],
+              "risks": [],
+              "rule_version": "synthetic-v1"
+            },
+            "next_action": "query_slots"
+          },
+          {
+            "step": 3,
+            "material_id": "U009",
+            "action": {
+              "tool": "query_slots",
+              "arguments": {},
+              "rationale": "读取最新时段占用，避免冲突"
+            },
+            "observation": {
+              "ok": false,
+              "code": "TOOL_UNAVAILABLE",
+              "tool": "query_slots",
+              "terminal": true,
+              "reason": "Slot query failed. Retry the request when the query service is available."
+            },
+            "next_action": "stop"
+          }
+        ],
+        "boundary": "MOCK validates control flow only; no real model evidence"
+      }
+    }
+  ]
+}
